@@ -104,7 +104,7 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/mai
         ```powershell
         Copy-Item -Recurse -Path ".\vscode" -Destination "$HOME\.vscode\extensions\magi-theme"
         ```
-4.  Open VS Code and select **MAGI** from the **Color Theme** picker (`Ctrl+K Ctrl+T`).
+4.  Open VS Code and select **MAGI** or **EVA-01** from the **Color Theme** picker (`Ctrl+K Ctrl+T`).
 
 ## 🪟 Windows Terminal Installation
 
@@ -119,6 +119,7 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/mai
 ## 🚀 Features
 
 *   **Unified Aesthetic:** Consistent colors across your terminal and editor.
+*   **Multiple Variants:** Choose between the logical **MAGI** (Orange) and the fierce **EVA-01** (Purple/Neon Green).
 *   **C++17 Ready:** Optimized syntax highlighting for modern C++ development.
 *   **Airline Support:** Mode-specific color shifts (Green/Cyan/Red).
 *   **Smart Bash Prompt:** Visual system status indicators, git integration, and **Conda/Docker/Python venv** detection.

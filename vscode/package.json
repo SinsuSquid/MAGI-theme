@@ -16,6 +16,11 @@
                 "label": "MAGI",
                 "uiTheme": "vs-dark",
                 "path": "./themes/magi-color-theme.json"
+            },
+            {
+                "label": "EVA-01",
+                "uiTheme": "vs-dark",
+                "path": "./themes/eva01-color-theme.json"
             }
         ]
     }
