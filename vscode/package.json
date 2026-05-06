@@ -1,9 +1,23 @@
 {
     "name": "magi-theme",
-    "displayName": "MAGI Theme",
-    "description": "High-performance theme inspired by the MAGI Supercomputer from Neon Genesis Evangelion.",
+    "displayName": "MAGI & EVA-01 Theme Suite",
+    "description": "High-performance theme suite inspired by the MAGI Supercomputer and EVA-01 from Neon Genesis Evangelion.",
     "version": "1.0.0",
     "publisher": "SinsuSquid",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SinsuSquid/MAGI-theme.git"
+    },
+    "keywords": [
+        "evangelion",
+        "magi",
+        "eva-01",
+        "anime",
+        "orange",
+        "purple",
+        "dark"
+    ],
+    "license": "MIT",
     "engines": {
         "vscode": "^1.50.0"
     },
