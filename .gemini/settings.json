@@ -3,37 +3,97 @@
     "theme": "magi",
     "customThemes": {
       "magi": {
-        "background": "#000000",
-        "primary": "#ec7420",
-        "secondary": "#484848",
-        "accent": "#3cffd0",
-        "response": "#e8e8e8",
-        "success": "#50ff10",
-        "warning": "#f4b000",
-        "error": "#f02020",
-        "border": "#484848"
+        "name": "magi",
+        "type": "custom",
+        "text": {
+          "primary": "#ec7420",
+          "secondary": "#484848",
+          "link": "#3cffd0",
+          "accent": "#3cffd0",
+          "response": "#e8e8e8"
+        },
+        "background": {
+          "primary": "#000000",
+          "diff": {
+            "added": "#1a3312",
+            "removed": "#331212"
+          }
+        },
+        "border": {
+          "default": "#484848",
+          "focused": "#ec7420"
+        },
+        "status": {
+          "success": "#50ff10",
+          "warning": "#f4b000",
+          "error": "#f02020"
+        },
+        "ui": {
+          "comment": "#484848",
+          "symbol": "#3cffd0"
+        }
       },
       "eva01": {
-        "background": "#1d1a2f",
-        "primary": "#8bd450",
-        "secondary": "#734f9a",
-        "accent": "#965fd4",
-        "response": "#e8e8e8",
-        "success": "#8bd450",
-        "warning": "#f4b000",
-        "error": "#f02020",
-        "border": "#734f9a"
+        "name": "eva01",
+        "type": "custom",
+        "text": {
+          "primary": "#8bd450",
+          "secondary": "#734f9a",
+          "link": "#965fd4",
+          "accent": "#965fd4",
+          "response": "#e8e8e8"
+        },
+        "background": {
+          "primary": "#1d1a2f",
+          "diff": {
+            "added": "#233318",
+            "removed": "#331818"
+          }
+        },
+        "border": {
+          "default": "#734f9a",
+          "focused": "#8bd450"
+        },
+        "status": {
+          "success": "#8bd450",
+          "warning": "#f4b000",
+          "error": "#f02020"
+        },
+        "ui": {
+          "comment": "#734f9a",
+          "symbol": "#965fd4"
+        }
       },
       "eva02": {
-        "background": "#281d2d",
-        "primary": "#ed2323",
-        "secondary": "#f99d52",
-        "accent": "#ea8533",
-        "response": "#fbe6e5",
-        "success": "#8bd450",
-        "warning": "#ea8533",
-        "error": "#ed2323",
-        "border": "#ea8533"
+        "name": "eva02",
+        "type": "custom",
+        "text": {
+          "primary": "#ed2323",
+          "secondary": "#f99d52",
+          "link": "#ea8533",
+          "accent": "#ea8533",
+          "response": "#fbe6e5"
+        },
+        "background": {
+          "primary": "#281d2d",
+          "diff": {
+            "added": "#331818",
+            "removed": "#181833"
+          }
+        },
+        "border": {
+          "default": "#ea8533",
+          "focused": "#ed2323"
+        },
+        "status": {
+          "success": "#8bd450",
+          "warning": "#ea8533",
+          "error": "#ed2323"
+        },
+        "ui": {
+          "comment": "#f99d5288",
+          "symbol": "#ea8533"
+        }
       }
     }
   }
