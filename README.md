@@ -82,7 +82,14 @@ let g:airline_theme='magi'
 2.  Press `F5` to launch a new window with the theme enabled, or:
 3.  Copy the `vscode` folder to your extensions directory:
     *   **Linux/macOS:** `cp -r ~/MAGI-theme/vscode ~/.vscode/extensions/magi-theme`
-    *   **Windows:** `xcopy ~/MAGI-theme/vscode %USERPROFILE%\.vscode\extensions\magi-theme /i /s`
+    *   **Windows (Command Prompt):**
+        ```cmd
+        xcopy /E /I "C:\path\to\MAGI-theme\vscode" "%USERPROFILE%\.vscode\extensions\magi-theme"
+        ```
+    *   **Windows (PowerShell):**
+        ```powershell
+        Copy-Item -Recurse -Path ".\vscode" -Destination "$HOME\.vscode\extensions\magi-theme"
+        ```
 4.  Open VS Code and select **MAGI** from the **Color Theme** picker (`Ctrl+K Ctrl+T`).
 
 ---
