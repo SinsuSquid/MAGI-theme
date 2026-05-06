@@ -78,6 +78,8 @@ let g:airline_theme='magi'
 
 ## 💻 VS Code Installation
 
+![VS Code Showcase](screenshot_vscode.png)
+
 1.  Open the repository folder in VS Code.
 2.  Press `F5` to launch a new window with the theme enabled, or:
 3.  Copy the `vscode` folder to your extensions directory:
