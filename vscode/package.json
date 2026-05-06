@@ -4,7 +4,6 @@
     "description": "High-performance theme suite inspired by the MAGI System, EVA-01, and EVA-02 from Neon Genesis Evangelion.",
     "version": "1.1.0",
     "publisher": "SinsuSquid",
-    "icon": "icon.png",
     "repository": {
         "type": "git",
         "url": "https://github.com/SinsuSquid/MAGI-theme.git"
