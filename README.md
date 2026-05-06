@@ -33,27 +33,39 @@ colorscheme magi
 let g:airline_theme='magi'
 ```
 
-## 🐚 Bash (Oh-My-Bash & Environment) Installation
+## 🐚 Bash (Oh-My-Bash) Installation
 
+For the fastest synchronization, use the MAGI automated deployment:
+
+### Quick Sync (One-Liner)
+```bash
+# Using curl
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/main/install.sh)"
+
+# Using wget
+bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/main/install.sh)"
+```
+
+### Manual Installation
 1.  Clone the repository:
     ```bash
     git clone https://github.com/SinsuSquid/MAGI-theme.git ~/MAGI-theme
     ```
-2.  Copy or symlink the theme to your OMB custom folder:
+2.  Run the install script:
     ```bash
-    mkdir -p ~/.oh-my-bash/custom/themes/magi
-    ln -s ~/MAGI-theme/bash/magi.theme.sh ~/.oh-my-bash/custom/themes/magi/magi.theme.sh
+    cd ~/MAGI-theme && ./install.sh
     ```
+
 3.  Set the theme in your `~/.bashrc`:
     ```bash
     OSH_THEME="magi"
     ```
-4.  Add the MAGI Environment Variables (LS_COLORS and FZF) to the end of your `~/.bashrc`:
+
+4.  **Optional:** Add MAGI Environment Variables (LS_COLORS and FZF) to your `~/.bashrc`:
     ```bash
-    if [ -f ~/MAGI-theme/env/magi.env.sh ]; then
-        source ~/MAGI-theme/env/magi.env.sh
-    fi
+    [ -f ~/MAGI-theme/env/magi.env.sh ] && source ~/MAGI-theme/env/magi.env.sh
     ```
+
 5.  Reload bash: `source ~/.bashrc`
 
 ## 📟 Tmux Installation

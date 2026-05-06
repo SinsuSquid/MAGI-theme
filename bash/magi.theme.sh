@@ -12,10 +12,10 @@ MAGI_BOLD_ORANGE='\[\e[1;38;2;236;116;32m\]'
 MAGI_RESET='\[\e[0m\]'
 
 SCM_NONE_CHAR=''
-SCM_THEME_PROMPT_DIRTY=" ${_omb_prompt_bold_brown}✗"
+SCM_THEME_PROMPT_DIRTY=" \[${_omb_prompt_bold_brown}\]✗"
 SCM_THEME_PROMPT_CLEAN=""
-SCM_THEME_PROMPT_PREFIX="${_omb_prompt_bold_olive}["
-SCM_THEME_PROMPT_SUFFIX="${_omb_prompt_bold_olive}]"
+SCM_THEME_PROMPT_PREFIX="\[${_omb_prompt_bold_olive}\]["
+SCM_THEME_PROMPT_SUFFIX="\[${_omb_prompt_bold_olive}\]]"
 SCM_GIT_SHOW_MINIMAL_INFO=true
 
 function _omb_theme_PROMPT_COMMAND() {
@@ -24,9 +24,9 @@ function _omb_theme_PROMPT_COMMAND() {
     # MAGI system status markers (using OMB internal colors for better compatibility)
     local status_marker
     if [[ ${RC} == 0 ]]; then
-        status_marker="${_omb_prompt_bold_green}●${MAGI_RESET}"
+        status_marker="\[${_omb_prompt_bold_green}\]●${MAGI_RESET}"
     else
-        status_marker="${_omb_prompt_bold_brown}●${MAGI_RESET}"
+        status_marker="\[${_omb_prompt_bold_brown}\]●${MAGI_RESET}"
     fi
 
     local python_venv; _omb_prompt_get_python_venv
