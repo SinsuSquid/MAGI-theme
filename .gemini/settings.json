@@ -1,0 +1,40 @@
+{
+  "ui": {
+    "theme": "magi",
+    "customThemes": {
+      "magi": {
+        "background": "#000000",
+        "primary": "#ec7420",
+        "secondary": "#484848",
+        "accent": "#3cffd0",
+        "response": "#e8e8e8",
+        "success": "#50ff10",
+        "warning": "#f4b000",
+        "error": "#f02020",
+        "border": "#484848"
+      },
+      "eva01": {
+        "background": "#1d1a2f",
+        "primary": "#8bd450",
+        "secondary": "#734f9a",
+        "accent": "#965fd4",
+        "response": "#e8e8e8",
+        "success": "#8bd450",
+        "warning": "#f4b000",
+        "error": "#f02020",
+        "border": "#734f9a"
+      },
+      "eva02": {
+        "background": "#281d2d",
+        "primary": "#ed2323",
+        "secondary": "#f99d52",
+        "accent": "#ea8533",
+        "response": "#fbe6e5",
+        "success": "#8bd450",
+        "warning": "#ea8533",
+        "error": "#ed2323",
+        "border": "#ea8533"
+      }
+    }
+  }
+}
