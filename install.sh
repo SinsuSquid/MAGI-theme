@@ -8,6 +8,7 @@ set -e
 # Colors for the terminal (because we love aesthetics! 💖)
 ORANGE='\033[38;2;236;116;32m'
 PURPLE='\033[38;2;150;95;212m'
+RED='\033[38;2;237;35;35m'
 CYAN='\033[38;2;60;255;208m'
 NC='\033[0m' # No Color
 
@@ -45,9 +46,10 @@ deploy_theme() {
     cp "$SOURCE_ROOT/$source_file" "$target_dir/$theme_name.theme.sh"
 }
 
-# Deploy both themes
+# Deploy all themes
 deploy_theme "magi" "bash/magi.theme.sh"
 deploy_theme "eva01" "bash/eva01.theme.sh"
+deploy_theme "eva02" "bash/eva02.theme.sh"
 
 # Cleanup
 rm -rf "$TEMP_DIR"
@@ -56,5 +58,6 @@ echo -e "\n✨ ${CYAN}MAGI Theme Suite synchronized successfully!${NC} ✨"
 echo -e "To activate a theme, update your ${ORANGE}~/.bashrc${NC} to use one of these:"
 echo -e "${ORANGE}OSH_THEME=\"magi\"${NC}   (Logical Mode 🧡)"
 echo -e "${PURPLE}OSH_THEME=\"eva01\"${NC}  (Berserk Mode 💜💚)"
+echo -e "${RED}OSH_THEME=\"eva02\"${NC}  (Production Model 🔴🧡)"
 echo -e "\nThen run: ${ORANGE}source ~/.bashrc${NC}\n"
 echo -e "(๑˃ᴗ˂)ﻭ Ready for duty, Senpai!"

@@ -1,0 +1,23 @@
+{
+    "name": "EVA-02",
+    "background": "#281d2d",
+    "foreground": "#fbe6e5",
+    "cursorColor": "#ed2323",
+    "selectionBackground": "#ea8533",
+    "black": "#281d2d",
+    "red": "#ed2323",
+    "green": "#8bd450",
+    "yellow": "#ea8533",
+    "blue": "#40c8e8",
+    "purple": "#965fd4",
+    "cyan": "#3cffd0",
+    "white": "#fbe6e5",
+    "brightBlack": "#f99d52",
+    "brightRed": "#ed2323",
+    "brightGreen": "#8bd450",
+    "brightYellow": "#f0f0a0",
+    "brightBlue": "#40c8e8",
+    "brightPurple": "#965fd4",
+    "brightCyan": "#3cffd0",
+    "brightWhite": "#fbe6e5"
+}

@@ -35,6 +35,11 @@
                 "label": "EVA-01",
                 "uiTheme": "vs-dark",
                 "path": "./themes/eva01-color-theme.json"
+            },
+            {
+                "label": "EVA-02",
+                "uiTheme": "vs-dark",
+                "path": "./themes/eva02-color-theme.json"
             }
         ]
     }
