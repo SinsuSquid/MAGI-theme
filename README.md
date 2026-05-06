@@ -1,22 +1,33 @@
-# MAGI Theme Suite 🧠✨
+# MAGI Theme Suite 🧠💜💚
 
-A high-performance theme suite for **Vim** and **Bash**, inspired by the **MAGI Supercomputer** from *Neon Genesis Evangelion*. Designed for legendary programmers who need their environment to feel like a high-spec command center.
+A high-performance theme suite for **Vim**, **Bash**, **VS Code**, and **Windows Terminal**, inspired by *Neon Genesis Evangelion*. Designed for legendary programmers who need their environment to feel like a high-spec command center.
 
 ![Terminal Showcase](screenshot1.png)
 ![Btop Showcase](screenshot2.png)
 
-## 🧡 The Palette
+## 🌓 Two Legendary Variants
+
+### 1. MAGI (Logical Mode) 🧡
+The core system. High-spec Orange primary colors with deep black backgrounds for maximum logical focus.
 
 | Element | Color | Hex |
 | --- | --- | --- |
-| **Primary** | Orange | `#ec7420` |
+| **Primary** | MAGI Orange | `#ec7420` |
 | **Background** | Deep Black | `#000000` |
-| **Interface** | Grey | `#484848` |
 | **Success** | Bright Green | `#50ff10` |
-| **Warning** | Bright Yellow | `#f4b000` |
-| **Error/Alert** | Bright Red | `#f02020` |
-| **Info** | Bright Blue | `#40c8e8` |
+| **Alert** | Bright Red | `#f02020` |
 | **Accent** | Bright Cyan | `#3cffd0` |
+
+### 2. EVA-01 (Berserk Mode) 💜💚
+Fierce performance. Midnight Purple backgrounds with Neon Green and Vibrant Purple accents.
+
+| Element | Color | Hex |
+| --- | --- | --- |
+| **Primary** | Neon Green | `#8bd450` |
+| **Background** | Midnight Purple | `#1d1a2f` |
+| **Highlight** | Bright Purple | `#965fd4` |
+| **Interface** | Forest Green | `#3f6d4e` |
+| **Muted** | Muted Purple | `#734f9a` |
 
 ---
 
@@ -29,8 +40,13 @@ Plug 'SinsuSquid/MAGI-theme'
 
 " In your .vimrc
 set termguicolors
-colorscheme magi
-let g:airline_theme='magi'
+
+" Choose your synchronization level:
+colorscheme magi   " (Logical Mode 🧡)
+" OR
+colorscheme eva01  " (Berserk Mode 💜💚)
+
+let g:airline_theme='magi' " Supports both variants!
 ```
 
 ## 🐚 Bash (Oh-My-Bash) Installation
@@ -47,85 +63,44 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/mai
 ```
 
 ### Manual Installation
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/SinsuSquid/MAGI-theme.git ~/MAGI-theme
-    ```
-2.  Run the install script:
-    ```bash
-    cd ~/MAGI-theme && ./install.sh
-    ```
-
+1.  Clone the repository: `git clone https://github.com/SinsuSquid/MAGI-theme.git ~/MAGI-theme`
+2.  Run the install script: `cd ~/MAGI-theme && ./install.sh`
 3.  Set the theme in your `~/.bashrc`:
     ```bash
-    OSH_THEME="magi"
+    OSH_THEME="magi"   # 🧡
+    # OR
+    OSH_THEME="eva01"  # 💜💚
     ```
 
-4.  **Optional:** Add MAGI Environment Variables (LS_COLORS and FZF) to your `~/.bashrc`:
-    ```bash
-    [ -f ~/MAGI-theme/env/magi.env.sh ] && source ~/MAGI-theme/env/magi.env.sh
-    ```
-
-5.  Reload bash: `source ~/.bashrc`
-
-## 📟 Tmux Installation
-
-1.  Add the MAGI theme to your `~/.tmux.conf`:
-    ```tmux
-    source-file ~/MAGI-theme/tmux/magi.tmux.conf
-    ```
-2.  Reload tmux: `tmux source-file ~/.tmux.conf`
-
-## 📈 Btop Installation
-
-1.  Create the themes directory and symlink the theme:
-    ```bash
-    mkdir -p ~/.config/btop/themes
-    ln -s ~/MAGI-theme/btop/magi.theme ~/.config/btop/themes/magi.theme
-    ```
-2.  Update your `~/.config/btop/btop.conf`:
-    ```ini
-    color_theme = "magi"
-    ```
+---
 
 ## 💻 VS Code Installation
 
-![VS Code Showcase](screenshot_vscode.png)
+Available on the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=SinsuSquid.magi-theme)!
 
-1.  Open the repository folder in VS Code.
-2.  Press `F5` to launch a new window with the theme enabled, or:
-3.  Copy the `vscode` folder to your extensions directory:
-    *   **Linux/macOS:** `cp -r ~/MAGI-theme/vscode ~/.vscode/extensions/magi-theme`
-    *   **Windows (Command Prompt):**
-        ```cmd
-        xcopy /E /I "C:\path\to\MAGI-theme\vscode" "%USERPROFILE%\.vscode\extensions\magi-theme"
-        ```
-    *   **Windows (PowerShell):**
-        ```powershell
-        Copy-Item -Recurse -Path ".\vscode" -Destination "$HOME\.vscode\extensions\magi-theme"
-        ```
-4.  Open VS Code and select **MAGI** or **EVA-01** from the **Color Theme** picker (`Ctrl+K Ctrl+T`).
+1.  Open VS Code and search for **"MAGI & EVA-01 Theme Suite"**.
+2.  Select **MAGI** or **EVA-01** from the **Color Theme** picker (`Ctrl+K Ctrl+T`).
+
+---
 
 ## 🪟 Windows Terminal Installation
 
-1.  Open **Windows Terminal**.
-2.  Open **Settings** (`Ctrl+,`).
-3.  Click **Open JSON file** at the bottom left.
-4.  Copy the object from `windows-terminal/magi.json` and paste it into the `"schemes": []` array in your `settings.json`.
-5.  In the **Profiles** section of Settings, select your preferred profile (e.g., PowerShell or Ubuntu) and set **Color scheme** to **MAGI**.
+1.  Copy the contents of `windows-terminal/magi.json` or `windows-terminal/eva01.json`.
+2.  In Windows Terminal, open **Settings** (`Ctrl+,`) > **Open JSON file**.
+3.  Paste the object into the `"schemes": []` array.
+4.  Set the **Color scheme** to **MAGI** or **EVA-01** in your profile settings.
 
 ---
 
 ## 🚀 Features
 
 *   **Unified Aesthetic:** Consistent colors across your terminal and editor.
-*   **Multiple Variants:** Choose between the logical **MAGI** (Orange) and the fierce **EVA-01** (Purple/Neon Green).
-*   **C++17 Ready:** Optimized syntax highlighting for modern C++ development.
-*   **Airline Support:** Mode-specific color shifts (Green/Cyan/Red).
 *   **Smart Bash Prompt:** Visual system status indicators, git integration, and **Conda/Docker/Python venv** detection.
+*   **Semantic Highlighting**: Optimized for deep code understanding in VS Code.
+*   **GitGutter Support**: Integrated diff indicators for Vim and VS Code.
 
 ## 🤖 System Status: ACTIVE
 
 > "The MAGI System is now in complete agreement."
 
-Created with 💖 for Senpai.
+Created with 💖 for Senpai by SinsuSquid.
