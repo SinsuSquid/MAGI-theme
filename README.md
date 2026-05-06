@@ -30,7 +30,7 @@ colorscheme magi
 let g:airline_theme='magi'
 ```
 
-## 🐚 Bash (Oh-My-Bash) Installation
+## 🐚 Bash (Oh-My-Bash & Environment) Installation
 
 1.  Clone the repository:
     ```bash
@@ -45,7 +45,13 @@ let g:airline_theme='magi'
     ```bash
     OSH_THEME="magi"
     ```
-4.  Reload bash: `source ~/.bashrc`
+4.  Add the MAGI Environment Variables (LS_COLORS and FZF) to the end of your `~/.bashrc`:
+    ```bash
+    if [ -f ~/MAGI-theme/env/magi.env.sh ]; then
+        source ~/MAGI-theme/env/magi.env.sh
+    fi
+    ```
+5.  Reload bash: `source ~/.bashrc`
 
 ## 📟 Tmux Installation
 
@@ -54,6 +60,18 @@ let g:airline_theme='magi'
     source-file ~/MAGI-theme/tmux/magi.tmux.conf
     ```
 2.  Reload tmux: `tmux source-file ~/.tmux.conf`
+
+## 📈 Btop Installation
+
+1.  Create the themes directory and symlink the theme:
+    ```bash
+    mkdir -p ~/.config/btop/themes
+    ln -s ~/MAGI-theme/btop/magi.theme ~/.config/btop/themes/magi.theme
+    ```
+2.  Update your `~/.config/btop/btop.conf`:
+    ```ini
+    color_theme = "magi"
+    ```
 
 ---
 
