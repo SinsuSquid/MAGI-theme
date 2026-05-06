@@ -113,7 +113,7 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/mai
 *   **Unified Aesthetic:** Consistent colors across your terminal and editor.
 *   **C++17 Ready:** Optimized syntax highlighting for modern C++ development.
 *   **Airline Support:** Mode-specific color shifts (Green/Cyan/Red).
-*   **Smart Bash Prompt:** Visual system status indicators and git integration.
+*   **Smart Bash Prompt:** Visual system status indicators, git integration, and **Conda/Docker/Python venv** detection.
 
 ## 🤖 System Status: ACTIVE
 

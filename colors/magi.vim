@@ -98,3 +98,10 @@ hi NERDTreeOpenable     guifg=#ec7420
 hi NERDTreeClosable     guifg=#ec7420
 hi NERDTreeFile         guifg=#e8e8e8
 hi NERDTreeExecFile     guifg=#50ff10
+
+" --- GitGutter & Signs ---
+hi SignColumn           guibg=#000000
+hi GitGutterAdd         guifg=#50ff10 guibg=#000000
+hi GitGutterChange      guifg=#ec7420 guibg=#000000
+hi GitGutterDelete      guifg=#f02020 guibg=#000000
+hi GitGutterChangeDelete guifg=#ec7420 guibg=#000000
