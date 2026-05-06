@@ -1,5 +1,6 @@
 {
 	"name": "EVA-01",
+	"semanticHighlighting": true,
 	"colors": {
 		"editor.background": "#0d001a",
 		"editor.foreground": "#e8e8e8",
@@ -60,7 +61,24 @@
 		"terminal.ansiBrightBlue": "#40c8e8",
 		"terminal.ansiBrightMagenta": "#b040a0",
 		"terminal.ansiBrightCyan": "#3cffd0",
-		"terminal.ansiBrightWhite": "#e8e8e8"
+		"terminal.ansiBrightWhite": "#e8e8e8",
+		"gitDecoration.modifiedResourceForeground": "#ff6600",
+		"gitDecoration.deletedResourceForeground": "#f02020",
+		"gitDecoration.addedResourceForeground": "#76ff03",
+		"gitDecoration.untrackedResourceForeground": "#3cffd0",
+		"editorBracketHighlight.foreground1": "#76ff03",
+		"editorBracketHighlight.foreground2": "#ff6600",
+		"editorBracketHighlight.foreground3": "#a060d0",
+		"editorBracketHighlight.foreground4": "#f4b000",
+		"editorBracketHighlight.foreground5": "#40c8e8",
+		"editorBracketHighlight.foreground6": "#3cffd0",
+		"breadcrumb.foreground": "#4a2a66",
+		"breadcrumb.activeSelectionForeground": "#76ff03",
+		"breadcrumb.focusForeground": "#76ff03",
+		"editorWidget.background": "#0d001a",
+		"editorWidget.border": "#2d004d",
+		"debugToolBar.background": "#0d001a",
+		"debugToolBar.border": "#76ff03"
 	},
 	"tokenColors": [
 		{
@@ -120,6 +138,26 @@
 			"settings": {
 				"foreground": "#ff6600"
 			}
+		},
+		{
+			"scope": ["entity.other.attribute-name"],
+			"settings": {
+				"foreground": "#f4b000",
+				"fontStyle": "italic"
+			}
 		}
-	]
+	],
+	"semanticTokenColors": {
+		"variable": "#e8e8e8",
+		"parameter": "#e8e8e8",
+		"function": {
+			"foreground": "#76ff03",
+			"fontStyle": "bold"
+		},
+		"class": {
+			"foreground": "#f4b000",
+			"fontStyle": "bold"
+		},
+		"keyword": "#a060d0"
+	}
 }

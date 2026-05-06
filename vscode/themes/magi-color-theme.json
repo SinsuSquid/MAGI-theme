@@ -1,5 +1,6 @@
 {
 	"name": "MAGI",
+	"semanticHighlighting": true,
 	"colors": {
 		"editor.background": "#000000",
 		"editor.foreground": "#e8e8e8",
@@ -60,7 +61,24 @@
 		"terminal.ansiBrightBlue": "#40c8e8",
 		"terminal.ansiBrightMagenta": "#b040a0",
 		"terminal.ansiBrightCyan": "#3cffd0",
-		"terminal.ansiBrightWhite": "#e8e8e8"
+		"terminal.ansiBrightWhite": "#e8e8e8",
+		"gitDecoration.modifiedResourceForeground": "#ec7420",
+		"gitDecoration.deletedResourceForeground": "#f02020",
+		"gitDecoration.addedResourceForeground": "#50ff10",
+		"gitDecoration.untrackedResourceForeground": "#3cffd0",
+		"editorBracketHighlight.foreground1": "#ec7420",
+		"editorBracketHighlight.foreground2": "#3cffd0",
+		"editorBracketHighlight.foreground3": "#40c8e8",
+		"editorBracketHighlight.foreground4": "#f0f0a0",
+		"editorBracketHighlight.foreground5": "#b040a0",
+		"editorBracketHighlight.foreground6": "#50ff10",
+		"breadcrumb.foreground": "#484848",
+		"breadcrumb.activeSelectionForeground": "#ec7420",
+		"breadcrumb.focusForeground": "#ec7420",
+		"editorWidget.background": "#000000",
+		"editorWidget.border": "#484848",
+		"debugToolBar.background": "#000000",
+		"debugToolBar.border": "#ec7420"
 	},
 	"tokenColors": [
 		{
@@ -120,6 +138,26 @@
 			"settings": {
 				"foreground": "#b040a0"
 			}
+		},
+		{
+			"scope": ["entity.other.attribute-name"],
+			"settings": {
+				"foreground": "#f0f0a0",
+				"fontStyle": "italic"
+			}
 		}
-	]
+	],
+	"semanticTokenColors": {
+		"variable": "#3cffd0",
+		"parameter": "#e8e8e8",
+		"function": {
+			"foreground": "#ec7420",
+			"fontStyle": "bold"
+		},
+		"class": {
+			"foreground": "#f0f0a0",
+			"fontStyle": "bold"
+		},
+		"keyword": "#f02020"
+	}
 }
