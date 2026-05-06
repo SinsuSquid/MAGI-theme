@@ -22,7 +22,7 @@ A high-performance theme suite for **Vim** and **Bash**, inspired by the **MAGI 
 Using **vim-plug**:
 
 ```vim
-Plug 'SinsuSquid/magi.vim' " Or your new repo name!
+Plug 'SinsuSquid/MAGI-theme'
 
 " In your .vimrc
 set termguicolors
@@ -32,11 +32,14 @@ let g:airline_theme='magi'
 
 ## 🐚 Bash (Oh-My-Bash) Installation
 
-1.  Clone the repository (if you haven't already).
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/SinsuSquid/MAGI-theme.git ~/MAGI-theme
+    ```
 2.  Copy or symlink the theme to your OMB custom folder:
     ```bash
     mkdir -p ~/.oh-my-bash/custom/themes/magi
-    ln -s $(pwd)/bash/magi.theme.sh ~/.oh-my-bash/custom/themes/magi/magi.theme.sh
+    ln -s ~/MAGI-theme/bash/magi.theme.sh ~/.oh-my-bash/custom/themes/magi/magi.theme.sh
     ```
 3.  Set the theme in your `~/.bashrc`:
     ```bash
@@ -48,8 +51,7 @@ let g:airline_theme='magi'
 
 1.  Add the MAGI theme to your `~/.tmux.conf`:
     ```tmux
-    # Replace the path with wherever you cloned the repo!
-    source-file ~/magi.vim/tmux/magi.tmux.conf
+    source-file ~/MAGI-theme/tmux/magi.tmux.conf
     ```
 2.  Reload tmux: `tmux source-file ~/.tmux.conf`
 
