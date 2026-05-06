@@ -1,6 +1,6 @@
-# magi.vim 🧠✨
+# MAGI Theme Suite 🧠✨
 
-A high-performance Vim colorscheme inspired by the **MAGI Supercomputer** from *Neon Genesis Evangelion*. Designed for legendary programmers who need their environment to feel like a high-spec command center.
+A high-performance theme suite for **Vim** and **Bash**, inspired by the **MAGI Supercomputer** from *Neon Genesis Evangelion*. Designed for legendary programmers who need their environment to feel like a high-spec command center.
 
 ## 🧡 The Palette
 
@@ -15,24 +15,43 @@ A high-performance Vim colorscheme inspired by the **MAGI Supercomputer** from *
 | **Info** | Bright Blue | `#40c8e8` |
 | **Accent** | Bright Cyan | `#3cffd0` |
 
-## 🚀 Features
+---
 
-*   **C++17 Ready:** Optimized syntax highlighting for modern C++ development.
-*   **Airline Support:** Integrated `vim-airline` theme with mode-specific color shifts (Green for Insert, Cyan for Visual, Red for Replace).
-*   **Modern UI:** Custom styles for NERDTree, Pmenu, and Diff modes.
-
-## 🛠️ Installation
+## 💻 Vim Installation
 
 Using **vim-plug**:
 
 ```vim
-Plug 'bgkang/magi.vim'
+Plug 'SinsuSquid/magi.vim' " Or your new repo name!
 
 " In your .vimrc
 set termguicolors
 colorscheme magi
 let g:airline_theme='magi'
 ```
+
+## 🐚 Bash (Oh-My-Bash) Installation
+
+1.  Clone the repository (if you haven't already).
+2.  Copy or symlink the theme to your OMB custom folder:
+    ```bash
+    mkdir -p ~/.oh-my-bash/custom/themes/magi
+    ln -s $(pwd)/bash/magi.theme.sh ~/.oh-my-bash/custom/themes/magi/magi.theme.sh
+    ```
+3.  Set the theme in your `~/.bashrc`:
+    ```bash
+    OSH_THEME="magi"
+    ```
+4.  Reload bash: `source ~/.bashrc`
+
+---
+
+## 🚀 Features
+
+*   **Unified Aesthetic:** Consistent colors across your terminal and editor.
+*   **C++17 Ready:** Optimized syntax highlighting for modern C++ development.
+*   **Airline Support:** Mode-specific color shifts (Green/Cyan/Red).
+*   **Smart Bash Prompt:** Visual system status indicators and git integration.
 
 ## 🤖 System Status: ACTIVE
 
