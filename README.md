@@ -2,6 +2,9 @@
 
 A high-performance theme suite for **Vim** and **Bash**, inspired by the **MAGI Supercomputer** from *Neon Genesis Evangelion*. Designed for legendary programmers who need their environment to feel like a high-spec command center.
 
+![Terminal Showcase](screenshot1.png)
+![Btop Showcase](screenshot2.png)
+
 ## 🧡 The Palette
 
 | Element | Color | Hex |
