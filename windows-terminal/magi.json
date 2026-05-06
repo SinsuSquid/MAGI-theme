@@ -1,0 +1,23 @@
+{
+    "name": "MAGI",
+    "background": "#000000",
+    "foreground": "#e8e8e8",
+    "cursorColor": "#ec7420",
+    "selectionBackground": "#3cffd0",
+    "black": "#000000",
+    "red": "#a80808",
+    "green": "#409820",
+    "yellow": "#f4b000",
+    "blue": "#5090c8",
+    "purple": "#a06090",
+    "cyan": "#60f0a0",
+    "white": "#b0b0b0",
+    "brightBlack": "#484848",
+    "brightRed": "#f02020",
+    "brightGreen": "#50ff10",
+    "brightYellow": "#f0f0a0",
+    "brightBlue": "#40c8e8",
+    "brightPurple": "#b040a0",
+    "brightCyan": "#3cffd0",
+    "brightWhite": "#e8e8e8"
+}

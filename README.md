@@ -106,6 +106,14 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/mai
         ```
 4.  Open VS Code and select **MAGI** from the **Color Theme** picker (`Ctrl+K Ctrl+T`).
 
+## 🪟 Windows Terminal Installation
+
+1.  Open **Windows Terminal**.
+2.  Open **Settings** (`Ctrl+,`).
+3.  Click **Open JSON file** at the bottom left.
+4.  Copy the object from `windows-terminal/magi.json` and paste it into the `"schemes": []` array in your `settings.json`.
+5.  In the **Profiles** section of Settings, select your preferred profile (e.g., PowerShell or Ubuntu) and set **Color scheme** to **MAGI**.
+
 ---
 
 ## 🚀 Features
