@@ -7,11 +7,17 @@ A high-performance theme suite for VS Code, inspired by the **MAGI Supercomputer
 ### 1. MAGI (Logical Mode) 🧡
 Inspired by the MAGI System. High-spec Orange primary colors with deep black backgrounds for maximum logical focus.
 
+![MAGI](magi.png)
+
 ### 2. EVA-01 (Berserk Mode) 💜💚
 The fierce colors of Unit-01. Deep Midnight Purple atmosphere with Neon Green and Vibrant Purple accents.
 
+![EVA-01](EVA01.png)
+
 ### 3. EVA-02 (Production Model) 🔴🧡
 Pure aggressive power. Deep Crimson highlights on a dark thermal base.
+
+![EVA-02](EVA02.png)
 
 ## 🚀 Features
 
@@ -22,7 +28,7 @@ Pure aggressive power. Deep Crimson highlights on a dark thermal base.
 
 ## 📟 Screenshots
 
-*(Screenshots available in the [GitHub Repository](https://github.com/SinsuSquid/MAGI-theme))*
+Additional showcase available in the [GitHub Repository](https://github.com/SinsuSquid/MAGI-theme).
 
 ## 🤖 System Status: ACTIVE
 

@@ -10,6 +10,8 @@ A high-performance theme suite for **Vim**, **Bash**, **VS Code**, and **Windows
 ### 1. MAGI (Logical Mode) 🧡
 The core system. High-spec Orange primary colors with deep black backgrounds for maximum logical focus.
 
+![MAGI VS Code](vscode/magi.png)
+
 | Element | Color | Hex |
 | --- | --- | --- |
 | **Primary** | MAGI Orange | `#ec7420` |
@@ -18,6 +20,8 @@ The core system. High-spec Orange primary colors with deep black backgrounds for
 ### 2. EVA-01 (Berserk Mode) 💜💚
 Fierce performance. Midnight Purple backgrounds with Neon Green and Vibrant Purple accents.
 
+![EVA-01 VS Code](vscode/EVA01.png)
+
 | Element | Color | Hex |
 | --- | --- | --- |
 | **Primary** | Neon Green | `#8bd450` |
@@ -25,6 +29,8 @@ Fierce performance. Midnight Purple backgrounds with Neon Green and Vibrant Purp
 
 ### 3. EVA-02 (Production Model) 🔴🧡
 Pure aggressive power. Deep Crimson highlights on a dark thermal base.
+
+![EVA-02 VS Code](vscode/EVA02.png)
 
 | Element | Color | Hex |
 | --- | --- | --- |
