@@ -1,0 +1,22 @@
+{
+    "name": "magi-theme",
+    "displayName": "MAGI Theme",
+    "description": "High-performance theme inspired by the MAGI Supercomputer from Neon Genesis Evangelion.",
+    "version": "1.0.0",
+    "publisher": "SinsuSquid",
+    "engines": {
+        "vscode": "^1.50.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "MAGI",
+                "uiTheme": "vs-dark",
+                "path": "./themes/magi-color-theme.json"
+            }
+        ]
+    }
+}

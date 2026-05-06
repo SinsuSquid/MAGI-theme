@@ -76,6 +76,15 @@ let g:airline_theme='magi'
     color_theme = "magi"
     ```
 
+## 💻 VS Code Installation
+
+1.  Open the repository folder in VS Code.
+2.  Press `F5` to launch a new window with the theme enabled, or:
+3.  Copy the `vscode` folder to your extensions directory:
+    *   **Linux/macOS:** `cp -r ~/MAGI-theme/vscode ~/.vscode/extensions/magi-theme`
+    *   **Windows:** `xcopy ~/MAGI-theme/vscode %USERPROFILE%\.vscode\extensions\magi-theme /i /s`
+4.  Open VS Code and select **MAGI** from the **Color Theme** picker (`Ctrl+K Ctrl+T`).
+
 ---
 
 ## 🚀 Features
