@@ -81,7 +81,7 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/mai
 
 Available on the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=SinsuSquid.magi-theme)!
 
-1.  Open VS Code and search for **"MAGI & EVA-01 Theme Suite"**.
+1.  Open VS Code and search for **"MAGI & EVA Theme Suite"**.
 2.  Select **MAGI**, **EVA-01**, or **EVA-02** from the **Color Theme** picker (`Ctrl+K Ctrl+T`).
 
 ---

@@ -1,14 +1,17 @@
-# MAGI & EVA-01 Theme Suite 🧠💜💚
+# MAGI & EVA Theme Suite 🧠💜💚🔴
 
-A high-performance theme suite for VS Code, inspired by the **MAGI Supercomputer** and **EVA-01** from *Neon Genesis Evangelion*.
+A high-performance theme suite for VS Code, inspired by the **MAGI Supercomputer**, **EVA-01**, and **EVA-02** from *Neon Genesis Evangelion*.
 
-## 🌓 Two Legendary Variants
+## 🌓 Three Legendary Variants
 
 ### 1. MAGI (Logical Mode) 🧡
 Inspired by the MAGI System. High-spec Orange primary colors with deep black backgrounds for maximum logical focus.
 
 ### 2. EVA-01 (Berserk Mode) 💜💚
-The fierce colors of Unit-01. Deep Purple atmosphere with Neon Green and Orange accents.
+The fierce colors of Unit-01. Deep Midnight Purple atmosphere with Neon Green and Vibrant Purple accents.
+
+### 3. EVA-02 (Production Model) 🔴🧡
+Pure aggressive power. Deep Crimson highlights on a dark thermal base.
 
 ## 🚀 Features
 
