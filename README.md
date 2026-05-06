@@ -44,6 +44,15 @@ let g:airline_theme='magi'
     ```
 4.  Reload bash: `source ~/.bashrc`
 
+## 📟 Tmux Installation
+
+1.  Add the MAGI theme to your `~/.tmux.conf`:
+    ```tmux
+    # Replace the path with wherever you cloned the repo!
+    source-file ~/magi.vim/tmux/magi.tmux.conf
+    ```
+2.  Reload tmux: `tmux source-file ~/.tmux.conf`
+
 ---
 
 ## 🚀 Features
