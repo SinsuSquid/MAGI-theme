@@ -73,9 +73,9 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/mai
 
 ### What this does:
 *   **Bash**: Deploys MAGI, EVA-01, and EVA-02 themes to your `oh-my-bash` folder.
-*   **Vim**: Synchronizes colorschemes and Airline themes to `~/.vim/`.
-*   **Tmux**: Sets up the MAGI configuration and adds it to your `~/.tmux.conf`.
-*   **Btop**: Deploys the MAGI theme to your btop config directory.
+*   **Vim**: Synchronizes all colorschemes and Airline themes to `~/.vim/`.
+*   **Tmux**: Sets up all three configurations in `~/.tmux/` and initializes the default.
+*   **Btop**: Deploys all theme variants to your btop config directory.
 
 ---
 

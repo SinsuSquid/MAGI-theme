@@ -1,0 +1,61 @@
+# EVA-02 Theme for Btop 🔴🧡
+# High-spec Red & Orange Production Model interface!
+
+# All graphs and meters
+theme[main_bg]="#281d2d"
+theme[main_fg]="#fbe6e5"
+theme[title]="#ed2323"
+theme[hi_fg]="#ea8533"
+theme[selected_bg]="#ed2323"
+theme[selected_fg]="#281d2d"
+theme[inactive_fg]="#f99d52"
+
+# CPU box
+theme[cpu_box]="#ed2323"
+theme[cpu_core]="#ea8533"
+theme[cpu_item]="#fbe6e5"
+
+# Mem/Disk box
+theme[mem_box]="#ed2323"
+theme[mem_item]="#fbe6e5"
+
+# Net box
+theme[net_box]="#ed2323"
+theme[net_item]="#fbe6e5"
+
+# Proc box
+theme[proc_box]="#ed2323"
+theme[proc_item]="#fbe6e5"
+
+# Graph colors
+theme[temp_start]="#ea8533"
+theme[temp_mid]="#f4b000"
+theme[temp_end]="#ed2323"
+
+theme[cpu_start]="#ed2323"
+theme[cpu_mid]="#ea8533"
+theme[cpu_end]="#f02020"
+
+theme[free_start]="#8bd450"
+theme[free_mid]="#ea8533"
+theme[free_end]="#ed2323"
+
+theme[cached_start]="#40c8e8"
+theme[cached_mid]="#ea8533"
+theme[cached_end]="#ed2323"
+
+theme[available_start]="#ed2323"
+theme[available_mid]="#f4b000"
+theme[available_end]="#f02020"
+
+theme[used_start]="#f02020"
+theme[used_mid]="#ea8533"
+theme[used_end]="#ed2323"
+
+theme[download_start]="#ea8533"
+theme[download_mid]="#40c8e8"
+theme[download_end]="#ed2323"
+
+theme[upload_start]="#8bd450"
+theme[upload_mid]="#ea8533"
+theme[upload_end]="#f02020"

@@ -1,0 +1,61 @@
+# EVA-01 Theme for Btop 💜💚
+# High-spec Neon Green & Purple interface!
+
+# All graphs and meters
+theme[main_bg]="#1d1a2f"
+theme[main_fg]="#e8e8e8"
+theme[title]="#8bd450"
+theme[hi_fg]="#965fd4"
+theme[selected_bg]="#8bd450"
+theme[selected_fg]="#1d1a2f"
+theme[inactive_fg]="#734f9a"
+
+# CPU box
+theme[cpu_box]="#8bd450"
+theme[cpu_core]="#965fd4"
+theme[cpu_item]="#e8e8e8"
+
+# Mem/Disk box
+theme[mem_box]="#8bd450"
+theme[mem_item]="#e8e8e8"
+
+# Net box
+theme[net_box]="#8bd450"
+theme[net_item]="#e8e8e8"
+
+# Proc box
+theme[proc_box]="#8bd450"
+theme[proc_item]="#e8e8e8"
+
+# Graph colors
+theme[temp_start]="#8bd450"
+theme[temp_mid]="#f4b000"
+theme[temp_end]="#f02020"
+
+theme[cpu_start]="#8bd450"
+theme[cpu_mid]="#965fd4"
+theme[cpu_end]="#f02020"
+
+theme[free_start]="#8bd450"
+theme[free_mid]="#965fd4"
+theme[free_end]="#734f9a"
+
+theme[cached_start]="#40c8e8"
+theme[cached_mid]="#965fd4"
+theme[cached_end]="#8bd450"
+
+theme[available_start]="#8bd450"
+theme[available_mid]="#f4b000"
+theme[available_end]="#f02020"
+
+theme[used_start]="#f02020"
+theme[used_mid]="#965fd4"
+theme[used_end]="#8bd450"
+
+theme[download_start]="#965fd4"
+theme[download_mid]="#40c8e8"
+theme[download_end]="#8bd450"
+
+theme[upload_start]="#8bd450"
+theme[upload_mid]="#965fd4"
+theme[upload_end]="#f02020"

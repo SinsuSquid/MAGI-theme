@@ -66,31 +66,35 @@ if [ -d "$HOME/.vim/autoload" ]; then
 fi
 
 # --- 3. Tmux Synchronization ---
-echo -e "📟 ${GREEN}Syncing Tmux configuration...${NC}"
+echo -e "📟 ${GREEN}Syncing Tmux configurations...${NC}"
 mkdir -p "$HOME/.tmux"
-cp tmux/magi.tmux.conf "$HOME/.tmux/magi.tmux.conf"
+for theme in magi eva01 eva02; do
+    cp "tmux/$theme.tmux.conf" "$HOME/.tmux/$theme.tmux.conf"
+    echo -e "   - $theme config deployed."
+done
+
 if [ -f "$HOME/.tmux.conf" ]; then
-    if ! grep -q "magi.tmux.conf" "$HOME/.tmux.conf"; then
+    if ! grep -q "magi.tmux.conf" "$HOME/.tmux.conf" && ! grep -q "eva01.tmux.conf" "$HOME/.tmux.conf" && ! grep -q "eva02.tmux.conf" "$HOME/.tmux.conf"; then
         echo -e "\n# MAGI Theme\nsource-file ~/.tmux/magi.tmux.conf" >> "$HOME/.tmux.conf"
-        echo -e "   - Added to ~/.tmux.conf"
+        echo -e "   - Default (magi) added to ~/.tmux.conf"
     fi
 else
     echo "source-file ~/.tmux/magi.tmux.conf" > "$HOME/.tmux.conf"
-    echo -e "   - Created ~/.tmux.conf"
+    echo -e "   - Created ~/.tmux.conf with magi default."
 fi
 
 # --- 4. Btop Synchronization ---
 echo -e "📈 ${GREEN}Syncing Btop themes...${NC}"
 mkdir -p "$HOME/.config/btop/themes"
-cp btop/magi.theme "$HOME/.config/btop/themes/magi.theme"
-echo -e "   - magi.theme deployed to btop config."
+cp btop/*.theme "$HOME/.config/btop/themes/"
+echo -e "   - All btop themes deployed."
 
 # --- Final Synchronization Report ---
 echo -e "\n✨ ${CYAN}ALL SYSTEMS SYNCHRONIZED!${NC} ✨"
 echo -e "--------------------------------------------------"
 echo -e "🐚 ${ORANGE}Bash:${NC} Set ${CYAN}OSH_THEME=\"magi\"${NC} (or eva01/eva02) in ~/.bashrc"
 echo -e "🖌️  ${ORANGE}Vim:${NC}  Add ${CYAN}colorscheme magi${NC} (or eva01/eva02) to ~/.vimrc"
-echo -e "📟 ${ORANGE}Tmux:${NC} Reload with ${CYAN}tmux source-file ~/.tmux.conf${NC}"
-echo -e "📈 ${ORANGE}Btop:${NC} Set ${CYAN}color_theme = \"magi\"${NC} in btop.conf"
+echo -e "📟 ${ORANGE}Tmux:${NC} source-file ~/.tmux/${CYAN}magi.tmux.conf${NC} (or eva01/eva02)"
+echo -e "📈 ${ORANGE}Btop:${NC} Set ${CYAN}color_theme = \"magi\"${NC} (or eva01/eva02) in btop.conf"
 echo -e "--------------------------------------------------"
 echo -e "\n(๑˃ᴗ˂)ﻭ ${GREEN}Ready for duty, Senpai!${NC}"
