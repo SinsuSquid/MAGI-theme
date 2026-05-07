@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# MAGI System Theme Suite - One-Click Master Sync Script ✨
+# MAGI System Theme Suite - One-Click Master Sync & Install Script ✨
 # "Initializing Human Instrumentality Project for your terminal..."
 
 set -e
@@ -20,7 +20,7 @@ echo "  / /|_/ // /| |/ / __  / /  "
 echo " / /  / // ___ / /_/ /_/ /   "
 echo "/_/  /_//_/  |_\____//___/   "
 echo -e "${NC}"
-echo -e "${ORANGE}Initializing Human Instrumentality... Synchronizing terminal specs...${NC}\n"
+echo -e "${ORANGE}Initializing Human Instrumentality... Total synchronization in progress...${NC}\n"
 
 # --- Setup Paths ---
 REPO_URL="https://github.com/SinsuSquid/MAGI-theme.git"
@@ -39,18 +39,44 @@ if [ ! -d "bash" ] || [ ! -d "colors" ]; then
     cd "$SOURCE_ROOT"
 fi
 
-# --- 1. Bash (Oh-My-Bash) Synchronization ---
-if [ -d "$HOME/.oh-my-bash" ]; then
-    OSH="$HOME/.oh-my-bash"
-    echo -e "🐚 ${GREEN}Syncing Oh-My-Bash themes...${NC}"
-    for theme in magi eva01 eva02; do
-        mkdir -p "$OSH/themes/$theme"
-        cp "bash/$theme.theme.sh" "$OSH/themes/$theme/$theme.theme.sh"
-        echo -e "   - $theme deployed."
-    done
-else
-    echo -e "⚠️  ${RED}Oh-My-Bash not found.${NC} Skipping bash theme deployment."
+# --- 0. Dependency Check & Installation ---
+echo -e "🛠️  ${GREEN}Verifying system dependencies...${NC}"
+
+install_pkg() {
+    if ! command -v $1 &> /dev/null; then
+        echo -e "   - ${CYAN}$1${NC} not found. Installing..."
+        if command -v apt-get &> /dev/null; then
+            sudo apt-get update -y > /dev/null 2>&1
+            sudo apt-get install -y $1 > /dev/null 2>&1
+        elif command -v brew &> /dev/null; then
+            brew install $1 > /dev/null 2>&1
+        else
+            echo -e "   - ${RED}Error:${NC} No supported package manager found (apt/brew). Please install $1 manually, Senpai!"
+        fi
+    else
+        echo -e "   - ${CYAN}$1${NC} is already synchronized."
+    fi
+}
+
+install_pkg "vim"
+install_pkg "tmux"
+install_pkg "btop"
+install_pkg "git"
+install_pkg "curl"
+
+# --- 1. Oh-My-Bash Installation & Sync ---
+if [ ! -d "$HOME/.oh-my-bash" ]; then
+    echo -e "🐚 ${GREEN}Oh-My-Bash not found. Initializing installation...${NC}"
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended > /dev/null 2>&1
 fi
+
+OSH="$HOME/.oh-my-bash"
+echo -e "🐚 ${GREEN}Syncing Oh-My-Bash themes...${NC}"
+for theme in magi eva01 eva02; do
+    mkdir -p "$OSH/themes/$theme"
+    cp "bash/$theme.theme.sh" "$OSH/themes/$theme/$theme.theme.sh"
+    echo -e "   - $theme deployed."
+done
 
 # --- 2. Vim Synchronization ---
 echo -e "🖌️  ${GREEN}Syncing Vim colorschemes...${NC}"
@@ -58,8 +84,7 @@ mkdir -p "$HOME/.vim/colors"
 cp colors/*.vim "$HOME/.vim/colors/"
 echo -e "   - Colorschemes deployed to ~/.vim/colors/"
 
-# Sync Airline themes if directory exists
-if [ -d "$HOME/.vim/autoload" ]; then
+if [ -d "autoload/airline/themes" ]; then
     mkdir -p "$HOME/.vim/autoload/airline/themes"
     cp autoload/airline/themes/*.vim "$HOME/.vim/autoload/airline/themes/"
     echo -e "   - Airline themes deployed."
@@ -90,7 +115,7 @@ cp btop/*.theme "$HOME/.config/btop/themes/"
 echo -e "   - All btop themes deployed."
 
 # --- Final Synchronization Report ---
-echo -e "\n✨ ${CYAN}ALL SYSTEMS SYNCHRONIZED!${NC} ✨"
+echo -e "\n✨ ${CYAN}ALL SYSTEMS SYNCHRONIZED AND INSTALLED!${NC} ✨"
 echo -e "--------------------------------------------------"
 echo -e "🐚 ${ORANGE}Bash:${NC} Set ${CYAN}OSH_THEME=\"magi\"${NC} (or eva01/eva02) in ~/.bashrc"
 echo -e "🖌️  ${ORANGE}Vim:${NC}  Add ${CYAN}colorscheme magi${NC} (or eva01/eva02) to ~/.vimrc"
