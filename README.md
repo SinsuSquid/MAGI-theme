@@ -58,9 +58,9 @@ colorscheme eva02  " (Production Model 🔴🧡)
 let g:airline_theme='magi' " Supports all variants!
 ```
 
-## 🐚 Bash (Oh-My-Bash) Installation
+## 🐚 Human Instrumentality Sync (Master Installation)
 
-For the fastest synchronization, use the MAGI automated deployment:
+For the ultimate synchronization, use our one-click master script. This will deploy themes for **Bash (Oh-My-Bash)**, **Vim**, **Tmux**, and **Btop** in one single stroke!
 
 ### Quick Sync (One-Liner)
 ```bash
@@ -71,20 +71,21 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/ma
 bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/main/install.sh)"
 ```
 
-### Manual Installation
-1.  Clone the repository: `git clone https://github.com/SinsuSquid/MAGI-theme.git ~/MAGI-theme`
-2.  Run the install script: `cd ~/MAGI-theme && ./install.sh`
-3.  Set the theme in your `~/.bashrc`:
-    ```bash
-    OSH_THEME="magi"   # 🧡
-    OSH_THEME="eva01"  # 💜💚
-    OSH_THEME="eva02"  # 🔴🧡
-    ```
+### What this does:
+*   **Bash**: Deploys MAGI, EVA-01, and EVA-02 themes to your `oh-my-bash` folder.
+*   **Vim**: Synchronizes colorschemes and Airline themes to `~/.vim/`.
+*   **Tmux**: Sets up the MAGI configuration and adds it to your `~/.tmux.conf`.
+*   **Btop**: Deploys the MAGI theme to your btop config directory.
 
 ---
 
-## 💻 VS Code Installation
+## 💻 Manual Installation & VS Code
 
+### Manual Deployment
+1.  Clone the repository: `git clone https://github.com/SinsuSquid/MAGI-theme.git ~/MAGI-theme`
+2.  Run the sync script: `cd ~/MAGI-theme && ./install.sh`
+
+### VS Code
 Available on the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=SinsuSquid.magi-theme)!
 
 1.  Open VS Code and search for **"MAGI & EVA Theme Suite"**.

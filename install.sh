@@ -1,63 +1,96 @@
 #!/usr/bin/env bash
 
-# MAGI System Theme Suite - Install Script ✨
-# "Syncing MAGI & EVA-01 terminal interfaces to the core system..."
+# MAGI System Theme Suite - One-Click Master Sync Script ✨
+# "Initializing Human Instrumentality Project for your terminal..."
 
 set -e
 
-# Colors for the terminal (because we love aesthetics! 💖)
+# --- Colors & Aesthetics ---
 ORANGE='\033[38;2;236;116;32m'
 PURPLE='\033[38;2;150;95;212m'
 RED='\033[38;2;237;35;35m'
+GREEN='\033[38;2;139;212;80m'
 CYAN='\033[38;2;60;255;208m'
 NC='\033[0m' # No Color
 
-echo -e "${ORANGE}Initializing MAGI System synchronization...${NC}"
+echo -e "${ORANGE}"
+echo "    __  ___ ___   ______ ____ "
+echo "   /  |/  //   | / ____//  _/"
+echo "  / /|_/ // /| |/ / __  / /  "
+echo " / /  / // ___ / /_/ /_/ /   "
+echo "/_/  /_//_/  |_\____//___/   "
+echo -e "${NC}"
+echo -e "${ORANGE}Initializing Human Instrumentality... Synchronizing terminal specs...${NC}\n"
 
-# Check for Oh-My-Bash
-if [ -z "$OSH" ]; then
-    if [ -d "$HOME/.oh-my-bash" ]; then
-        OSH="$HOME/.oh-my-bash"
-    else
-        echo -e "💢 ${ORANGE}Error:${NC} Oh-My-Bash not found! Please install it first, Senpai!"
-        exit 1
-    fi
-fi
-
+# --- Setup Paths ---
 REPO_URL="https://github.com/SinsuSquid/MAGI-theme.git"
-TEMP_DIR=$(mktemp -d)
+INSTALL_DIR="$HOME/.MAGI-theme"
 SOURCE_ROOT="."
 
-# If we are running via curl/wget, we might not have the source files
-if [ ! -f "bash/magi.theme.sh" ]; then
-    echo -e "📦 ${CYAN}Remote execution detected.${NC} Fetching MAGI assets from GitHub..."
-    git clone --depth 1 "$REPO_URL" "$TEMP_DIR" > /dev/null 2>&1
-    SOURCE_ROOT="$TEMP_DIR"
+# --- Remote/Local Logic ---
+if [ ! -d "bash" ] || [ ! -d "colors" ]; then
+    echo -e "📦 ${CYAN}Remote sync detected.${NC} Cloning MAGI assets to ${CYAN}$INSTALL_DIR${NC}..."
+    if [ -d "$INSTALL_DIR" ]; then
+        cd "$INSTALL_DIR" && git pull > /dev/null 2>&1
+    else
+        git clone --depth 1 "$REPO_URL" "$INSTALL_DIR" > /dev/null 2>&1
+    fi
+    SOURCE_ROOT="$INSTALL_DIR"
+    cd "$SOURCE_ROOT"
 fi
 
-# Function to deploy a theme
-deploy_theme() {
-    local theme_name=$1
-    local source_file=$2
-    local target_dir="$OSH/themes/$theme_name"
-    
-    echo -e "📂 Deploying ${CYAN}$theme_name${NC} theme..."
-    mkdir -p "$target_dir"
-    cp "$SOURCE_ROOT/$source_file" "$target_dir/$theme_name.theme.sh"
-}
+# --- 1. Bash (Oh-My-Bash) Synchronization ---
+if [ -d "$HOME/.oh-my-bash" ]; then
+    OSH="$HOME/.oh-my-bash"
+    echo -e "🐚 ${GREEN}Syncing Oh-My-Bash themes...${NC}"
+    for theme in magi eva01 eva02; do
+        mkdir -p "$OSH/themes/$theme"
+        cp "bash/$theme.theme.sh" "$OSH/themes/$theme/$theme.theme.sh"
+        echo -e "   - $theme deployed."
+    done
+else
+    echo -e "⚠️  ${RED}Oh-My-Bash not found.${NC} Skipping bash theme deployment."
+fi
 
-# Deploy all themes
-deploy_theme "magi" "bash/magi.theme.sh"
-deploy_theme "eva01" "bash/eva01.theme.sh"
-deploy_theme "eva02" "bash/eva02.theme.sh"
+# --- 2. Vim Synchronization ---
+echo -e "🖌️  ${GREEN}Syncing Vim colorschemes...${NC}"
+mkdir -p "$HOME/.vim/colors"
+cp colors/*.vim "$HOME/.vim/colors/"
+echo -e "   - Colorschemes deployed to ~/.vim/colors/"
 
-# Cleanup
-rm -rf "$TEMP_DIR"
+# Sync Airline themes if directory exists
+if [ -d "$HOME/.vim/autoload" ]; then
+    mkdir -p "$HOME/.vim/autoload/airline/themes"
+    cp autoload/airline/themes/*.vim "$HOME/.vim/autoload/airline/themes/"
+    echo -e "   - Airline themes deployed."
+fi
 
-echo -e "\n✨ ${CYAN}MAGI Theme Suite synchronized successfully!${NC} ✨"
-echo -e "To activate a theme, update your ${ORANGE}~/.bashrc${NC} to use one of these:"
-echo -e "${ORANGE}OSH_THEME=\"magi\"${NC}   (Logical Mode 🧡)"
-echo -e "${PURPLE}OSH_THEME=\"eva01\"${NC}  (Berserk Mode 💜💚)"
-echo -e "${RED}OSH_THEME=\"eva02\"${NC}  (Production Model 🔴🧡)"
-echo -e "\nThen run: ${ORANGE}source ~/.bashrc${NC}\n"
-echo -e "(๑˃ᴗ˂)ﻭ Ready for duty, Senpai!"
+# --- 3. Tmux Synchronization ---
+echo -e "📟 ${GREEN}Syncing Tmux configuration...${NC}"
+mkdir -p "$HOME/.tmux"
+cp tmux/magi.tmux.conf "$HOME/.tmux/magi.tmux.conf"
+if [ -f "$HOME/.tmux.conf" ]; then
+    if ! grep -q "magi.tmux.conf" "$HOME/.tmux.conf"; then
+        echo -e "\n# MAGI Theme\nsource-file ~/.tmux/magi.tmux.conf" >> "$HOME/.tmux.conf"
+        echo -e "   - Added to ~/.tmux.conf"
+    fi
+else
+    echo "source-file ~/.tmux/magi.tmux.conf" > "$HOME/.tmux.conf"
+    echo -e "   - Created ~/.tmux.conf"
+fi
+
+# --- 4. Btop Synchronization ---
+echo -e "📈 ${GREEN}Syncing Btop themes...${NC}"
+mkdir -p "$HOME/.config/btop/themes"
+cp btop/magi.theme "$HOME/.config/btop/themes/magi.theme"
+echo -e "   - magi.theme deployed to btop config."
+
+# --- Final Synchronization Report ---
+echo -e "\n✨ ${CYAN}ALL SYSTEMS SYNCHRONIZED!${NC} ✨"
+echo -e "--------------------------------------------------"
+echo -e "🐚 ${ORANGE}Bash:${NC} Set ${CYAN}OSH_THEME=\"magi\"${NC} (or eva01/eva02) in ~/.bashrc"
+echo -e "🖌️  ${ORANGE}Vim:${NC}  Add ${CYAN}colorscheme magi${NC} (or eva01/eva02) to ~/.vimrc"
+echo -e "📟 ${ORANGE}Tmux:${NC} Reload with ${CYAN}tmux source-file ~/.tmux.conf${NC}"
+echo -e "📈 ${ORANGE}Btop:${NC} Set ${CYAN}color_theme = \"magi\"${NC} in btop.conf"
+echo -e "--------------------------------------------------"
+echo -e "\n(๑˃ᴗ˂)ﻭ ${GREEN}Ready for duty, Senpai!${NC}"
