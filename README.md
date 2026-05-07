@@ -55,7 +55,12 @@ colorscheme magi   " (Logical Mode 🧡)
 colorscheme eva01  " (Berserk Mode 💜💚)
 colorscheme eva02  " (Production Model 🔴🧡)
 
-let g:airline_theme='magi' " Supports all variants!
+" Matching Airline Theme:
+let g:airline_theme='magi'   " (For MAGI 🧡)
+" OR
+let g:airline_theme='eva01'  " (For EVA-01 💜💚)
+" OR
+let g:airline_theme='eva02'  " (For EVA-02 🔴🧡)
 ```
 
 ## 🐚 Human Instrumentality Sync (Master Installation)
