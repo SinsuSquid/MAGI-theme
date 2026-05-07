@@ -50,7 +50,7 @@ function _omb_theme_PROMPT_COMMAND() {
     
     # Construction of the MAGI command line
     # scm_prompt_char_info already handles its own escaping
-    PS1="${status_marker} ${python_info}${conda_info}${docker_info}${user_host} ${current_dir} $(scm_prompt_char_info)${MAGI_ORANGE}»${MAGI_RESET} "
+    PS1="${status_marker} ${python_info}${conda_info}${docker_info}${user_host} ${current_dir} $(scm_prompt_char_info)\n${MAGI_ORANGE}»${MAGI_RESET} "
 }
 
 _omb_util_add_prompt_command _omb_theme_PROMPT_COMMAND

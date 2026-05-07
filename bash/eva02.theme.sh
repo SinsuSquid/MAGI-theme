@@ -51,7 +51,7 @@ function _omb_theme_PROMPT_COMMAND() {
     local current_dir="${EVA02_ORANGE}\w${EVA02_RESET}"
     
     # Construction of the command line
-    PS1="${status_marker} ${python_info}${conda_info}${docker_info}${user_host} ${current_dir} $(scm_prompt_char_info)${EVA02_RED}»${EVA02_RESET} "
+    PS1="${status_marker} ${python_info}${conda_info}${docker_info}${user_host} ${current_dir} $(scm_prompt_char_info)\n${EVA02_RED}»${EVA02_RESET} "
 }
 
 _omb_util_add_prompt_command _omb_theme_PROMPT_COMMAND
