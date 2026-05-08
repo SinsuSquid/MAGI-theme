@@ -1,0 +1,35 @@
+[
+    {
+        "name": "MAGI System (Logical Mode)",
+        "colorScheme": "MAGI",
+        "commandline": "powershell.exe",
+        "icon": "🧡",
+        "cursorShape": "bar",
+        "font": {
+            "face": "Cascadia Code",
+            "size": 12
+        }
+    },
+    {
+        "name": "EVA-01 (Berserk Mode)",
+        "colorScheme": "EVA-01",
+        "commandline": "powershell.exe",
+        "icon": "💜",
+        "cursorShape": "bar",
+        "font": {
+            "face": "Cascadia Code",
+            "size": 12
+        }
+    },
+    {
+        "name": "EVA-02 (Production Model)",
+        "colorScheme": "EVA-02",
+        "commandline": "powershell.exe",
+        "icon": "🔴",
+        "cursorShape": "bar",
+        "font": {
+            "face": "Cascadia Code",
+            "size": 12
+        }
+    }
+]

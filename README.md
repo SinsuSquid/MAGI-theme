@@ -102,8 +102,9 @@ Available on the [VS Code Marketplace](https://marketplace.visualstudio.com/item
 
 1.  Copy the contents of `windows-terminal/magi.json`, `windows-terminal/eva01.json`, or `windows-terminal/eva02.json`.
 2.  In Windows Terminal, open **Settings** (`Ctrl+,`) > **Open JSON file**.
-3.  Paste the object into the `"schemes": []` array.
-4.  Set the **Color scheme** to **MAGI**, **EVA-01**, or **EVA-02** in your profile settings.
+3.  Paste the scheme objects into the `"schemes": []` array.
+4.  (Optional) For a complete high-spec experience, copy the profile snippets from `windows-terminal/profiles.json` and paste them into the `"profiles": { "list": [...] }` section!
+5.  Set your default unit to **MAGI**, **EVA-01**, or **EVA-02**!
 
 ---
 
