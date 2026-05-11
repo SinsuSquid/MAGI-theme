@@ -82,9 +82,13 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # Environment Variables (FZF/LS_COLORS)
-mkdir -p "$INSTALL_DIR/env"
-cp env/*.env.sh "$INSTALL_DIR/env/"
-echo -e "   - Environment profiles synced to $INSTALL_DIR/env/"
+if [ "$SOURCE_ROOT" != "$INSTALL_DIR" ]; then
+    mkdir -p "$INSTALL_DIR/env"
+    cp env/*.env.sh "$INSTALL_DIR/env/"
+    echo -e "   - Environment profiles synced to $INSTALL_DIR/env/"
+else
+    echo -e "   - Environment profiles already in place at $INSTALL_DIR/env/"
+fi
 
 # --- 2. Vim Synchronization ---
 echo -e "🖌️  ${GREEN}Syncing Vim colorschemes...${NC}"
