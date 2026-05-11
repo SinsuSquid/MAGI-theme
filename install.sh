@@ -51,75 +51,82 @@ install_pkg() {
         elif command -v brew &> /dev/null; then
             brew install $1 > /dev/null 2>&1
         else
-            echo -e "   - ${RED}Error:${NC} No supported package manager found (apt/brew). Please install $1 manually, Senpai!"
+            echo -e "   - ${RED}Error:${NC} No supported package manager found (apt/brew)."
         fi
     else
-        echo -e "   - ${CYAN}$1${NC} is already synchronized."
+        echo -e "   - ${CYAN}$1${NC} is synchronized."
     fi
 }
 
-install_pkg "vim"
-install_pkg "tmux"
-install_pkg "btop"
-install_pkg "git"
-install_pkg "curl"
+for pkg in vim tmux btop git curl; do install_pkg "$pkg"; done
 
-# --- 1. Oh-My-Bash Installation & Sync ---
-if [ ! -d "$HOME/.oh-my-bash" ]; then
-    echo -e "🐚 ${GREEN}Oh-My-Bash not found. Initializing installation...${NC}"
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended > /dev/null 2>&1
+# --- 1. Shell Synchronization (Bash & Zsh) ---
+echo -e "🐚 ${GREEN}Syncing Shell themes...${NC}"
+
+# Oh-My-Bash
+if [ -d "$HOME/.oh-my-bash" ]; then
+    OSH="$HOME/.oh-my-bash"
+    for theme in magi eva01 eva02; do
+        mkdir -p "$OSH/themes/$theme"
+        cp "bash/$theme.theme.sh" "$OSH/themes/$theme/$theme.theme.sh"
+    done
+    echo -e "   - Oh-My-Bash themes deployed."
 fi
 
-OSH="$HOME/.oh-my-bash"
-echo -e "🐚 ${GREEN}Syncing Oh-My-Bash themes...${NC}"
-for theme in magi eva01 eva02; do
-    mkdir -p "$OSH/themes/$theme"
-    cp "bash/$theme.theme.sh" "$OSH/themes/$theme/$theme.theme.sh"
-    echo -e "   - $theme deployed."
-done
+# Oh-My-Zsh
+if [ -d "$HOME/.oh-my-zsh" ]; then
+    ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+    mkdir -p "$ZSH_CUSTOM/themes"
+    cp zsh/*.zsh-theme "$ZSH_CUSTOM/themes/"
+    echo -e "   - Oh-My-Zsh themes deployed to custom/themes/"
+fi
+
+# Environment Variables (FZF/LS_COLORS)
+mkdir -p "$INSTALL_DIR/env"
+cp env/*.env.sh "$INSTALL_DIR/env/"
+echo -e "   - Environment profiles synced to $INSTALL_DIR/env/"
 
 # --- 2. Vim Synchronization ---
 echo -e "🖌️  ${GREEN}Syncing Vim colorschemes...${NC}"
 mkdir -p "$HOME/.vim/colors"
 cp colors/*.vim "$HOME/.vim/colors/"
-echo -e "   - Colorschemes deployed to ~/.vim/colors/"
-
 if [ -d "autoload/airline/themes" ]; then
     mkdir -p "$HOME/.vim/autoload/airline/themes"
     cp autoload/airline/themes/*.vim "$HOME/.vim/autoload/airline/themes/"
-    echo -e "   - Airline themes deployed."
 fi
+echo -e "   - Vim & Airline themes deployed."
 
 # --- 3. Tmux Synchronization ---
 echo -e "📟 ${GREEN}Syncing Tmux configurations...${NC}"
 mkdir -p "$HOME/.tmux"
-for theme in magi eva01 eva02; do
-    cp "tmux/$theme.tmux.conf" "$HOME/.tmux/$theme.tmux.conf"
-    echo -e "   - $theme config deployed."
-done
-
-if [ -f "$HOME/.tmux.conf" ]; then
-    if ! grep -q "magi.tmux.conf" "$HOME/.tmux.conf" && ! grep -q "eva01.tmux.conf" "$HOME/.tmux.conf" && ! grep -q "eva02.tmux.conf" "$HOME/.tmux.conf"; then
-        echo -e "\n# MAGI Theme\nsource-file ~/.tmux/magi.tmux.conf" >> "$HOME/.tmux.conf"
-        echo -e "   - Default (magi) added to ~/.tmux.conf"
-    fi
-else
-    echo "source-file ~/.tmux/magi.tmux.conf" > "$HOME/.tmux.conf"
-    echo -e "   - Created ~/.tmux.conf with magi default."
+cp tmux/*.tmux.conf "$HOME/.tmux/"
+if [ ! -f "$HOME/.tmux.conf" ] || ! grep -q "magi.tmux.conf" "$HOME/.tmux.conf"; then
+    echo -e "\n# MAGI Theme\nsource-file ~/.tmux/magi.tmux.conf" >> "$HOME/.tmux.conf"
 fi
+echo -e "   - Tmux configs synced."
 
 # --- 4. Btop Synchronization ---
 echo -e "📈 ${GREEN}Syncing Btop themes...${NC}"
 mkdir -p "$HOME/.config/btop/themes"
 cp btop/*.theme "$HOME/.config/btop/themes/"
-echo -e "   - All btop themes deployed."
+echo -e "   - Btop themes deployed."
+
+# --- 5. Bat Synchronization ---
+if command -v bat &> /dev/null || command -v batcat &> /dev/null; then
+    BAT_CONFIG=$(bat --config-dir 2>/dev/null || echo "$HOME/.config/bat")
+    mkdir -p "$BAT_CONFIG/themes"
+    cp bat/*.tmTheme "$BAT_CONFIG/themes/"
+    echo -e "🦇 ${GREEN}Syncing Bat themes...${NC}"
+    # Note: bat needs 'bat cache --build' to see new themes
+fi
 
 # --- Final Synchronization Report ---
-echo -e "\n✨ ${CYAN}ALL SYSTEMS SYNCHRONIZED AND INSTALLED!${NC} ✨"
+echo -e "\n✨ ${CYAN}TOTAL SYNCHRONIZATION ACHIEVED!${NC} ✨"
 echo -e "--------------------------------------------------"
-echo -e "🐚 ${ORANGE}Bash:${NC} Set ${CYAN}OSH_THEME=\"magi\"${NC} (or eva01/eva02) in ~/.bashrc"
-echo -e "🖌️  ${ORANGE}Vim:${NC}  Add ${CYAN}colorscheme magi${NC} (or eva01/eva02) to ~/.vimrc"
-echo -e "📟 ${ORANGE}Tmux:${NC} source-file ~/.tmux/${CYAN}magi.tmux.conf${NC} (or eva01/eva02)"
-echo -e "📈 ${ORANGE}Btop:${NC} Set ${CYAN}color_theme = \"magi\"${NC} (or eva01/eva02) in btop.conf"
+echo -e "🐚 ${ORANGE}Shell:${NC} Use ${CYAN}magi/eva01/eva02${NC} in your .bashrc or .zshrc"
+echo -e "📂 ${ORANGE}Env:${NC}   Source ${CYAN}$INSTALL_DIR/env/[unit].env.sh${NC}"
+echo -e "🖌️  ${ORANGE}Vim:${NC}   Add ${CYAN}colorscheme [unit]${NC} to ~/.vimrc"
+echo -e "📟 ${ORANGE}Tmux:${NC}  Source ${CYAN}~/.tmux/[unit].tmux.conf${NC}"
+echo -e "📈 ${ORANGE}Btop:${NC}  Set ${CYAN}color_theme = \"[unit]\"${NC} in btop.conf"
 echo -e "--------------------------------------------------"
-echo -e "\n(๑˃ᴗ˂)ﻭ ${GREEN}Ready for duty, Senpai!${NC}"
+echo -e "\n(๑˃ᴗ˂)ﻭ ${GREEN}The Human Instrumentality Project is complete, Senpai!${NC}"

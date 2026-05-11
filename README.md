@@ -111,9 +111,13 @@ Available on the [VS Code Marketplace](https://marketplace.visualstudio.com/item
 ## 🚀 Features
 
 *   **Unified Aesthetic:** Consistent colors across your terminal and editor.
-*   **Smart Bash Prompt:** High-spec **multi-line** prompt with status markers, git integration, and **Conda/Docker/Python venv** detection.
+*   **Smart Shell Prompts:** High-spec multi-line prompts for **Bash (Oh-My-Bash)** and **Zsh (Oh-My-Zsh)**.
+*   **Total Environment Sync:** Themed **FZF**, **LS_COLORS**, and **Bat** highlighting for all three units.
 *   **Semantic Highlighting**: Optimized for deep code understanding in VS Code.
-*   **GitGutter Support**: Integrated diff indicators for Vim and VS Code.
+*   **Master Installer**: Automated dependency installation and theme deployment for Linux/macOS.
+
+## 🖼️ Visual Assets
+For official hex-palettes, wallpaper ideas, and design guides, check out [ASSETS.md](./ASSETS.md)! ✨
 
 ## 🤖 System Status: ACTIVE
 
