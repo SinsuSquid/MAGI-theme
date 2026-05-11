@@ -82,7 +82,10 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # Environment Variables (FZF/LS_COLORS)
-if [ "$SOURCE_ROOT" != "$INSTALL_DIR" ]; then
+ABS_SOURCE=$(realpath "$SOURCE_ROOT")
+ABS_INSTALL=$(realpath "$INSTALL_DIR")
+
+if [ "$ABS_SOURCE" != "$ABS_INSTALL" ]; then
     mkdir -p "$INSTALL_DIR/env"
     cp env/*.env.sh "$INSTALL_DIR/env/"
     echo -e "   - Environment profiles synced to $INSTALL_DIR/env/"
