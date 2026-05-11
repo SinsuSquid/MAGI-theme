@@ -111,7 +111,7 @@ Available on the [VS Code Marketplace](https://marketplace.visualstudio.com/item
 ## 🚀 Features
 
 *   **Unified Aesthetic:** Consistent colors across your terminal and editor.
-*   **Smart Bash Prompt:** Visual system status indicators, git integration, and **Conda/Docker/Python venv** detection.
+*   **Smart Bash Prompt:** Tactical **Powerline-style** segmented HUD with status indicators, git integration, and **Conda/Docker/Python venv** detection.
 *   **Semantic Highlighting**: Optimized for deep code understanding in VS Code.
 *   **GitGutter Support**: Integrated diff indicators for Vim and VS Code.
 

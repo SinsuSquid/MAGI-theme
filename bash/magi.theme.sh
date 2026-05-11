@@ -1,56 +1,87 @@
 #! bash oh-my-bash.module
 #
-# MAGI System Theme ✨
+# MAGI System Theme ✨ (Powerline Edition)
 # Inspired by the MAGI Supercomputer from Neon Genesis Evangelion.
-# High-spec Orange Primary with high visibility! 🚀
+# High-spec Orange Primary with segmented HUD! 🚀
 
 # --- MAGI Palette ---
-# We wrap escape codes in \[ and \] so Bash doesn't get confused about prompt length!
-MAGI_ORANGE='\[\e[38;2;236;116;32m\]'
-MAGI_CYAN='\[\e[38;2;60;255;208m\]'
-MAGI_BOLD_ORANGE='\[\e[1;38;2;236;116;32m\]'
+MAGI_ORANGE_RGB='236;116;32'
+MAGI_CYAN_RGB='60;255;208'
+MAGI_GREY_RGB='72;72;72'
+MAGI_BLACK_RGB='0;0;0'
+MAGI_RED_RGB='168;8;8'
+
+# ANSI Escapes
+function _omb_theme_MAGI_BG() { echo -ne "\[\e[48;2;$1m\]"; }
+function _omb_theme_MAGI_FG() { echo -ne "\[\e[38;2;$1m\]"; }
 MAGI_RESET='\[\e[0m\]'
 
 SCM_NONE_CHAR=''
-SCM_THEME_PROMPT_DIRTY=" \[${_omb_prompt_bold_brown}\]✗"
+SCM_THEME_PROMPT_DIRTY=" ${_omb_prompt_bold_brown}✗"
 SCM_THEME_PROMPT_CLEAN=""
-SCM_THEME_PROMPT_PREFIX="\[${_omb_prompt_bold_olive}\]["
-SCM_THEME_PROMPT_SUFFIX="\[${_omb_prompt_bold_olive}\]]"
+SCM_THEME_PROMPT_PREFIX="["
+SCM_THEME_PROMPT_SUFFIX="]"
 SCM_GIT_SHOW_MINIMAL_INFO=true
 
 function _omb_theme_PROMPT_COMMAND() {
     local RC="$?"
+    local PS1_HEAD=""
 
-    # MAGI system status markers (using OMB internal colors for better compatibility)
-    local status_marker
+    # 1. Status Segment
     if [[ ${RC} == 0 ]]; then
-        status_marker="\[${_omb_prompt_bold_green}\]●${MAGI_RESET}"
+        PS1_HEAD+="$(_omb_theme_MAGI_BG $MAGI_ORANGE_RGB)$(_omb_theme_MAGI_FG $MAGI_BLACK_RGB) ● "
+        LAST_BG=$MAGI_ORANGE_RGB
     else
-        status_marker="\[${_omb_prompt_bold_brown}\]●${MAGI_RESET}"
+        PS1_HEAD+="$(_omb_theme_MAGI_BG $MAGI_RED_RGB)$(_omb_theme_MAGI_FG '255;255;255') ● "
+        LAST_BG=$MAGI_RED_RGB
     fi
 
-    local python_info=""
+    # 2. Env Segment (Optional)
+    local env_info=""
     local python_venv; _omb_prompt_get_python_venv
-    if [[ -n $python_venv ]]; then
-        python_info="${MAGI_CYAN}(py:${python_venv}) ${MAGI_RESET}"
-    fi
-
-    local conda_info=""
+    [[ -n $python_venv ]] && env_info+="py:$python_venv "
     if [[ -n "${CONDA_DEFAULT_ENV}" ]]; then
-        conda_info="${MAGI_CYAN}(conda:${CONDA_DEFAULT_ENV}) ${MAGI_RESET}"
+        env_info+="conda:${CONDA_DEFAULT_ENV} "
+    fi
+    [[ -f /.dockerenv ]] && env_info+="docker "
+
+    if [[ -n $env_info ]]; then
+        # Transition: LAST_BG -> Grey
+        PS1_HEAD+="$(_omb_theme_MAGI_BG $MAGI_GREY_RGB)$(_omb_theme_MAGI_FG $LAST_BG)"
+        PS1_HEAD+="$(_omb_theme_MAGI_BG $MAGI_GREY_RGB)$(_omb_theme_MAGI_FG $MAGI_CYAN_RGB) ${env_info}"
+        LAST_BG=$MAGI_GREY_RGB
     fi
 
-    local docker_info=""
-    if [[ -f /.dockerenv ]]; then
-        docker_info="${MAGI_CYAN}(docker) ${MAGI_RESET}"
+    # 3. User@Host Segment
+    # Transition: LAST_BG -> Orange
+    if [[ "$LAST_BG" == "$MAGI_ORANGE_RGB" ]]; then
+        PS1_HEAD+="$(_omb_theme_MAGI_FG $MAGI_BLACK_RGB) " # Soft sep if same color
+    else
+        PS1_HEAD+="$(_omb_theme_MAGI_BG $MAGI_ORANGE_RGB)$(_omb_theme_MAGI_FG $LAST_BG)"
+    fi
+    PS1_HEAD+="$(_omb_theme_MAGI_BG $MAGI_ORANGE_RGB)$(_omb_theme_MAGI_FG $MAGI_BLACK_RGB) \u@\h "
+    LAST_BG=$MAGI_ORANGE_RGB
+
+    # 4. Path Segment
+    # Transition: LAST_BG (Orange) -> Cyan
+    PS1_HEAD+="$(_omb_theme_MAGI_BG $MAGI_CYAN_RGB)$(_omb_theme_MAGI_FG $LAST_BG)"
+    PS1_HEAD+="$(_omb_theme_MAGI_BG $MAGI_CYAN_RGB)$(_omb_theme_MAGI_FG $MAGI_BLACK_RGB) \w "
+    LAST_BG=$MAGI_CYAN_RGB
+
+    # 5. Git Segment (Wrapped if exists)
+    local git_info=$(scm_prompt_char_info)
+    if [[ -n $git_info ]]; then
+        # Transition: LAST_BG (Cyan) -> Grey
+        PS1_HEAD+="$(_omb_theme_MAGI_BG $MAGI_GREY_RGB)$(_omb_theme_MAGI_FG $LAST_BG)"
+        PS1_HEAD+="$(_omb_theme_MAGI_BG $MAGI_GREY_RGB)$(_omb_theme_MAGI_FG $MAGI_ORANGE_RGB) ${git_info} "
+        LAST_BG=$MAGI_GREY_RGB
     fi
 
-    local user_host="${MAGI_BOLD_ORANGE}\u@\h${MAGI_RESET}"
-    local current_dir="${MAGI_CYAN}\w${MAGI_RESET}"
-    
-    # Construction of the MAGI command line
-    # scm_prompt_char_info already handles its own escaping
-    PS1="${status_marker} ${python_info}${conda_info}${docker_info}${user_host} ${current_dir} $(scm_prompt_char_info)\n${MAGI_ORANGE}»${MAGI_RESET} "
+    # End Head Segment
+    PS1_HEAD+="$MAGI_RESET$(_omb_theme_MAGI_FG $LAST_BG)${MAGI_RESET}"
+
+    # Final construction
+    PS1="${PS1_HEAD}\n$(_omb_theme_MAGI_FG $MAGI_ORANGE_RGB)»${MAGI_RESET} "
 }
 
 _omb_util_add_prompt_command _omb_theme_PROMPT_COMMAND

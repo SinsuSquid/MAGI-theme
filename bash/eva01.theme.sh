@@ -1,57 +1,84 @@
 #! bash oh-my-bash.module
 #
-# EVA-01 Theme 💜💚
+# EVA-01 Theme 💜💚 (Powerline Edition)
 # Inspired by Evangelion Unit-01
-# Midnight Purple Background with Neon Green Accents! 🚀
+# Midnight Purple Background with Neon Green HUD! 🚀
 
 # --- EVA-01 Palette ---
-# We wrap escape codes in \[ and \] so Bash doesn't get confused about prompt length!
-EVA_PURPLE='\[\e[38;2;150;95;212m\]'
-EVA_GREEN='\[\e[38;2;139;212;80m\]'
-EVA_BG_PURPLE='\[\e[38;2;29;26;47m\]'
-EVA_MUTED_PURPLE='\[\e[38;2;115;79;154m\]'
-EVA_FOREST_GREEN='\[\e[38;2;63;109;78m\]'
+EVA_PURPLE_RGB='150;95;212'
+EVA_GREEN_RGB='139;212;80'
+EVA_BG_PURPLE_RGB='29;26;47'
+EVA_MUTED_PURPLE_RGB='115;79;154'
+EVA_FOREST_GREEN_RGB='63;109;78'
+EVA_RED_RGB='168;8;8'
+
+# ANSI Escapes
+function _omb_theme_EVA_BG() { echo -ne "\[\e[48;2;$1m\]"; }
+function _omb_theme_EVA_FG() { echo -ne "\[\e[38;2;$1m\]"; }
 EVA_RESET='\[\e[0m\]'
 
 SCM_NONE_CHAR=''
-SCM_THEME_PROMPT_DIRTY=" \[${_omb_prompt_bold_brown}\]✗"
+SCM_THEME_PROMPT_DIRTY=" ${_omb_prompt_bold_brown}✗"
 SCM_THEME_PROMPT_CLEAN=""
-SCM_THEME_PROMPT_PREFIX="\[${EVA_MUTED_PURPLE}\]["
-SCM_THEME_PROMPT_SUFFIX="\[${EVA_MUTED_PURPLE}\]]"
+SCM_THEME_PROMPT_PREFIX="["
+SCM_THEME_PROMPT_SUFFIX="]"
 SCM_GIT_SHOW_MINIMAL_INFO=true
 
 function _omb_theme_PROMPT_COMMAND() {
     local RC="$?"
+    local PS1_HEAD=""
 
-    # Status markers
-    local status_marker
+    # 1. Status Segment
     if [[ ${RC} == 0 ]]; then
-        status_marker="\[${EVA_GREEN}\]●${EVA_RESET}"
+        PS1_HEAD+="$(_omb_theme_EVA_BG $EVA_GREEN_RGB)$(_omb_theme_EVA_FG $EVA_BG_PURPLE_RGB) ● "
+        LAST_BG=$EVA_GREEN_RGB
     else
-        status_marker="\[${_omb_prompt_bold_brown}\]●${EVA_RESET}"
+        PS1_HEAD+="$(_omb_theme_EVA_BG $EVA_RED_RGB)$(_omb_theme_EVA_FG '255;255;255') ● "
+        LAST_BG=$EVA_RED_RGB
     fi
 
-    local python_info=""
+    # 2. Env Segment (Optional)
+    local env_info=""
     local python_venv; _omb_prompt_get_python_venv
-    if [[ -n $python_venv ]]; then
-        python_info="${EVA_GREEN}(py:${python_venv}) ${EVA_RESET}"
-    fi
-
-    local conda_info=""
+    [[ -n $python_venv ]] && env_info+="py:$python_venv "
     if [[ -n "${CONDA_DEFAULT_ENV}" ]]; then
-        conda_info="${EVA_GREEN}(conda:${CONDA_DEFAULT_ENV}) ${EVA_RESET}"
+        env_info+="conda:${CONDA_DEFAULT_ENV} "
+    fi
+    [[ -f /.dockerenv ]] && env_info+="docker "
+
+    if [[ -n $env_info ]]; then
+        # Transition: LAST_BG -> Muted Purple
+        PS1_HEAD+="$(_omb_theme_EVA_BG $EVA_MUTED_PURPLE_RGB)$(_omb_theme_EVA_FG $LAST_BG)"
+        PS1_HEAD+="$(_omb_theme_EVA_BG $EVA_MUTED_PURPLE_RGB)$(_omb_theme_EVA_FG $EVA_GREEN_RGB) ${env_info}"
+        LAST_BG=$EVA_MUTED_PURPLE_RGB
     fi
 
-    local docker_info=""
-    if [[ -f /.dockerenv ]]; then
-        docker_info="${EVA_GREEN}(docker) ${EVA_RESET}"
+    # 3. User@Host Segment
+    # Transition: LAST_BG -> Purple
+    PS1_HEAD+="$(_omb_theme_EVA_BG $EVA_PURPLE_RGB)$(_omb_theme_EVA_FG $LAST_BG)"
+    PS1_HEAD+="$(_omb_theme_EVA_BG $EVA_PURPLE_RGB)$(_omb_theme_EVA_FG $EVA_BG_PURPLE_RGB) \u@\h "
+    LAST_BG=$EVA_PURPLE_RGB
+
+    # 4. Path Segment
+    # Transition: LAST_BG (Purple) -> Green
+    PS1_HEAD+="$(_omb_theme_EVA_BG $EVA_GREEN_RGB)$(_omb_theme_EVA_FG $LAST_BG)"
+    PS1_HEAD+="$(_omb_theme_EVA_BG $EVA_GREEN_RGB)$(_omb_theme_EVA_FG $EVA_BG_PURPLE_RGB) \w "
+    LAST_BG=$EVA_GREEN_RGB
+
+    # 5. Git Segment (Wrapped if exists)
+    local git_info=$(scm_prompt_char_info)
+    if [[ -n $git_info ]]; then
+        # Transition: LAST_BG (Green) -> Forest Green
+        PS1_HEAD+="$(_omb_theme_EVA_BG $EVA_FOREST_GREEN_RGB)$(_omb_theme_EVA_FG $LAST_BG)"
+        PS1_HEAD+="$(_omb_theme_EVA_BG $EVA_FOREST_GREEN_RGB)$(_omb_theme_EVA_FG $EVA_PURPLE_RGB) ${git_info} "
+        LAST_BG=$EVA_FOREST_GREEN_RGB
     fi
 
-    local user_host="${EVA_PURPLE}\u@\h${EVA_RESET}"
-    local current_dir="${EVA_GREEN}\w${EVA_RESET}"
-    
-    # Construction of the command line
-    PS1="${status_marker} ${python_info}${conda_info}${docker_info}${user_host} ${current_dir} $(scm_prompt_char_info)\n${EVA_PURPLE}»${EVA_RESET} "
+    # End Head Segment
+    PS1_HEAD+="$EVA_RESET$(_omb_theme_EVA_FG $LAST_BG)${EVA_RESET}"
+
+    # Final construction
+    PS1="${PS1_HEAD}\n$(_omb_theme_EVA_FG $EVA_GREEN_RGB)»${EVA_RESET} "
 }
 
 _omb_util_add_prompt_command _omb_theme_PROMPT_COMMAND
