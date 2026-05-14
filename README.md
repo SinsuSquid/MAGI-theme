@@ -81,6 +81,7 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/mai
 *   **Vim**: Synchronizes all colorschemes and Airline themes to `~/.vim/`.
 *   **Tmux**: Sets up all three configurations in `~/.tmux/` and initializes the default.
 *   **Btop**: Deploys all theme variants to your btop config directory.
+*   **Claude Code**: Deploys all three themes to `~/.claude/themes/` for selection via `/config`.
 
 ---
 
@@ -95,6 +96,24 @@ Available on the [VS Code Marketplace](https://marketplace.visualstudio.com/item
 
 1.  Open VS Code and search for **"MAGI & EVA Theme Suite"**.
 2.  Select **MAGI**, **EVA-01**, or **EVA-02** from the **Color Theme** picker (`Ctrl+K Ctrl+T`).
+
+---
+
+## 🤖 Claude Code Installation
+
+Themes deploy automatically via `install.sh`. After running it, select your unit inside any Claude Code session:
+
+```
+/config  →  Theme  →  magi / eva01 / eva02
+```
+
+Or set it permanently in `~/.claude/settings.json`:
+
+```json
+{
+  "theme": "magi"
+}
+```
 
 ---
 
@@ -114,6 +133,7 @@ Available on the [VS Code Marketplace](https://marketplace.visualstudio.com/item
 *   **Smart Shell Prompts:** High-spec multi-line prompts for **Bash (Oh-My-Bash)** and **Zsh (Oh-My-Zsh)**.
 *   **Total Environment Sync:** Themed **FZF**, **LS_COLORS**, and **Bat** highlighting for all three units.
 *   **Semantic Highlighting**: Optimized for deep code understanding in VS Code.
+*   **Claude Code Integration**: Full UI theming for the Claude Code CLI via `~/.claude/themes/`.
 *   **Master Installer**: Automated dependency installation and theme deployment for Linux/macOS.
 
 ## 🖼️ Visual Assets
