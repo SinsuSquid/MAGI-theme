@@ -102,7 +102,7 @@ Available on the [VS Code Marketplace](https://marketplace.visualstudio.com/item
 
 ## 🔺 Delta Installation
 
-Themes deploy automatically via `install.sh`. After running it, add the following to your `~/.gitconfig`:
+Synchronize your diffs with the MAGI System. Themes deploy automatically via `install.sh`. After running it, activate your unit in `~/.gitconfig`:
 
 ```ini
 [include]
@@ -112,7 +112,7 @@ Themes deploy automatically via `install.sh`. After running it, add the followin
     features = magi   # or eva01 / eva02
 ```
 
-The delta themes reference the MAGI bat `syntax-theme` for syntax highlighting inside diff hunks. Run `bat cache --build` once after install if syntax colors don't appear.
+> Delta taps into the MAGI bat syntax engine for full in-hunk highlighting. If colors don't initialize on first boot, run `bat cache --build` to complete the synchronization.
 
 ---
 

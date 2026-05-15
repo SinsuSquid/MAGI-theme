@@ -133,9 +133,7 @@ if command -v delta &> /dev/null && [ -d "delta" ]; then
     mkdir -p "$DELTA_DIR"
     cp delta/*.gitconfig "$DELTA_DIR/"
     echo -e "🔺 ${GREEN}Syncing Delta themes...${NC}"
-    echo -e "   - Themes deployed to $DELTA_DIR"
-    echo -e "   - Add to ~/.gitconfig: [include] path = ~/.config/delta/magi.gitconfig"
-    echo -e "   - Then set: [delta] features = magi"
+    echo -e "   - Delta diff themes synchronized to $DELTA_DIR"
 fi
 
 # --- 7. Claude Code Synchronization ---
