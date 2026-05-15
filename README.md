@@ -63,9 +63,25 @@ let g:airline_theme='eva01'  " (For EVA-01 💜💚)
 let g:airline_theme='eva02'  " (For EVA-02 🔴🧡)
 ```
 
+## 🚀 Starship Installation
+
+The MAGI prompt is engineered for maximum situational awareness — unit, host, directory, git status, active environment, and command duration, all synchronized to your unit's palette.
+
+Themes deploy automatically via `install.sh`. After running it, activate your unit in your `.bashrc` or `.zshrc`:
+
+```bash
+# Activate your unit (sets STARSHIP_CONFIG automatically)
+source ~/.MAGI-theme/env/magi.env.sh   # or eva01 / eva02
+
+# Initialize Starship
+eval "$(starship init bash)"   # or: eval "$(starship init zsh)"
+```
+
+---
+
 ## 🐚 Human Instrumentality Sync (Master Installation)
 
-For the ultimate synchronization, use our one-click master script. This will deploy themes for **Bash (Oh-My-Bash)**, **Vim**, **Tmux**, and **Btop** in one single stroke!
+For the ultimate synchronization, use our one-click master script. This will deploy themes for **Starship**, **Vim**, **Tmux**, **Btop**, and **Delta** in one single stroke!
 
 ### Quick Sync (One-Liner)
 ```bash
@@ -77,12 +93,11 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/mai
 ```
 
 ### What this does:
-*   **Bash**: Deploys MAGI, EVA-01, and EVA-02 themes to your `oh-my-bash` folder.
+*   **Starship**: Deploys all three prompt configs to `~/.config/starship/`.
 *   **Vim**: Synchronizes all colorschemes and Airline themes to `~/.vim/`.
 *   **Tmux**: Sets up all three configurations in `~/.tmux/` and initializes the default.
 *   **Btop**: Deploys all theme variants to your btop config directory.
 *   **Delta**: Deploys all three gitconfig feature files to `~/.config/delta/`.
-*   **Claude Code**: Deploys all three themes to `~/.claude/themes/` for selection via `/config`.
 
 ---
 
@@ -116,24 +131,6 @@ Synchronize your diffs with the MAGI System. Themes deploy automatically via `in
 
 ---
 
-## 🤖 Claude Code Installation
-
-Themes deploy automatically via `install.sh`. After running it, select your unit inside any Claude Code session:
-
-```
-/config  →  Theme  →  magi / eva01 / eva02
-```
-
-Or set it permanently in `~/.claude/settings.json`:
-
-```json
-{
-  "theme": "magi"
-}
-```
-
----
-
 ## 🪟 Windows Terminal Installation
 
 1.  Copy the contents of `windows-terminal/magi.json`, `windows-terminal/eva01.json`, or `windows-terminal/eva02.json`.
@@ -150,7 +147,6 @@ Or set it permanently in `~/.claude/settings.json`:
 *   **Smart Shell Prompts:** High-spec multi-line prompts for **Bash (Oh-My-Bash)** and **Zsh (Oh-My-Zsh)**.
 *   **Total Environment Sync:** Themed **FZF**, **LS_COLORS**, **Bat**, and **Delta** for all three units.
 *   **Semantic Highlighting**: Optimized for deep code understanding in VS Code.
-*   **Claude Code Integration**: Full UI theming for the Claude Code CLI via `~/.claude/themes/`.
 *   **Master Installer**: Automated dependency installation and theme deployment for Linux/macOS.
 
 ## 🖼️ Visual Assets

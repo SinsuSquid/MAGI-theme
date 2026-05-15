@@ -16,3 +16,6 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 # ln = symlink (bold purple)
 # ex = executable (bold cyan)
 export LS_COLORS="di=01;38;2;139;212;80:ln=01;38;2;150;95;212:ex=01;38;2;60;255;208:so=01;35:pi=40;33:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37"
+
+# --- EVA-01 Starship Prompt ---
+export STARSHIP_CONFIG="$HOME/.config/starship/eva01.toml"

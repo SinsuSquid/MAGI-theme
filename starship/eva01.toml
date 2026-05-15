@@ -1,0 +1,82 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# EVA-01 — Berserk Mode 💜💚
+# "Unit-01 has gone berserk. Synchronization rate: unlimited."
+
+format = """
+$status$python$conda$docker_context$username$hostname$directory$git_branch$git_status$cmd_duration
+$character"""
+
+palette = "eva01"
+
+[palettes.eva01]
+primary = "#8bd450"
+accent  = "#965fd4"
+dim     = "#734f9a"
+ok      = "#8bd450"
+err     = "#f02020"
+fg      = "#e8e8e8"
+
+# --- Prompt Character ---
+[character]
+success_symbol = '[»](bold primary)'
+error_symbol   = '[»](bold err)'
+
+# --- Status Dot ---
+[status]
+format         = '$symbol '
+success_symbol = '[●](bold ok)'
+symbol         = '[●](bold err)'
+disabled       = false
+
+# --- User & Host ---
+[username]
+format      = '[$user](bold primary)'
+show_always = true
+
+[hostname]
+format   = '[@$hostname](bold primary) '
+ssh_only = false
+
+# --- Directory ---
+[directory]
+format            = '[$path](accent) '
+truncation_length = 3
+truncate_to_repo  = true
+
+# --- Git ---
+[git_branch]
+format = '\[[$branch](primary)\]'
+symbol = ''
+
+[git_status]
+format     = '([$all_status$ahead_behind](dim) )'
+conflicted = '✗'
+ahead      = '↑${count}'
+behind     = '↓${count}'
+diverged   = '↕${ahead_count}↓${behind_count}'
+untracked  = '?'
+stashed    = '⬡'
+modified   = '!'
+staged     = '+'
+renamed    = '»'
+deleted    = '-'
+
+# --- Environment Indicators ---
+[python]
+format            = '[\(py:$virtualenv\)](accent) '
+detect_extensions = []
+detect_files      = []
+detect_folders    = []
+
+[conda]
+format = '[\(conda:$environment\)](accent) '
+
+[docker_context]
+format          = '[\(docker:$context\)](accent) '
+only_with_files = false
+
+# --- Command Duration ---
+[cmd_duration]
+format   = '[\($duration\)](dim) '
+min_time = 2000

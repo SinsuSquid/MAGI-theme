@@ -60,10 +60,17 @@ install_pkg() {
 
 for pkg in vim tmux btop git curl; do install_pkg "$pkg"; done
 
-# --- 1. Shell Synchronization (Bash & Zsh) ---
+# --- 1. Shell Synchronization ---
 echo -e "🐚 ${GREEN}Syncing Shell themes...${NC}"
 
-# Oh-My-Bash
+# Starship
+if command -v starship &> /dev/null && [ -d "starship" ]; then
+    mkdir -p "$HOME/.config/starship"
+    cp starship/*.toml "$HOME/.config/starship/"
+    echo -e "   - Starship themes synchronized to ~/.config/starship/"
+fi
+
+# Oh-My-Bash (legacy — kept for backward compatibility)
 if [ -d "$HOME/.oh-my-bash" ]; then
     OSH="$HOME/.oh-my-bash"
     for theme in magi eva01 eva02; do
@@ -81,7 +88,7 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     echo -e "   - Oh-My-Zsh themes deployed to custom/themes/"
 fi
 
-# Environment Variables (FZF/LS_COLORS)
+# Environment Variables (FZF/LS_COLORS/Starship)
 ABS_SOURCE=$(realpath "$SOURCE_ROOT")
 ABS_INSTALL=$(realpath "$INSTALL_DIR")
 
@@ -136,24 +143,14 @@ if command -v delta &> /dev/null && [ -d "delta" ]; then
     echo -e "   - Delta diff themes synchronized to $DELTA_DIR"
 fi
 
-# --- 7. Claude Code Synchronization ---
-if command -v claude &> /dev/null && [ -d "claude" ]; then
-    CLAUDE_THEME_DIR="$HOME/.claude/themes"
-    mkdir -p "$CLAUDE_THEME_DIR"
-    cp claude/themes/*.json "$CLAUDE_THEME_DIR/"
-    echo -e "🤖 ${GREEN}Syncing Claude Code themes...${NC}"
-    echo -e "   - Themes deployed to $CLAUDE_THEME_DIR"
-fi
-
 # --- Final Synchronization Report ---
 echo -e "\n✨ ${CYAN}TOTAL SYNCHRONIZATION ACHIEVED!${NC} ✨"
 echo -e "--------------------------------------------------"
-echo -e "🐚 ${ORANGE}Shell:${NC} Use ${CYAN}magi/eva01/eva02${NC} in your .bashrc or .zshrc"
+echo -e "🚀 ${ORANGE}Starship:${NC} Source ${CYAN}~/.MAGI-theme/env/[unit].env.sh${NC} and add ${CYAN}eval \"\$(starship init bash)\"${NC}"
 echo -e "📂 ${ORANGE}Env:${NC}   Source ${CYAN}$INSTALL_DIR/env/[unit].env.sh${NC}"
 echo -e "🖌️  ${ORANGE}Vim:${NC}   Add ${CYAN}colorscheme [unit]${NC} to ~/.vimrc"
 echo -e "📟 ${ORANGE}Tmux:${NC}  Source ${CYAN}~/.tmux/[unit].tmux.conf${NC}"
 echo -e "📈 ${ORANGE}Btop:${NC}  Set ${CYAN}color_theme = \"[unit]\"${NC} in btop.conf"
 echo -e "🔺 ${ORANGE}Delta:${NC} Include ${CYAN}~/.config/delta/[unit].gitconfig${NC} and set ${CYAN}features = [unit]${NC}"
-echo -e "🤖 ${ORANGE}Claude:${NC} Set ${CYAN}theme = \"magi\"${NC} (or eva01/eva02) in /config"
 echo -e "--------------------------------------------------"
 echo -e "\n(๑˃ᴗ˂)ﻭ ${GREEN}The Human Instrumentality Project is complete, Senpai!${NC}"
