@@ -41,6 +41,7 @@ Every theme variant has a counterpart file in each tool directory. When adding o
 | `tmux/` | `<unit>.tmux.conf` | Tmux status bar |
 | `btop/` | `<unit>.theme` | Btop monitor |
 | `bat/` | `<unit>.tmTheme` | Bat syntax highlighting |
+| `delta/` | `<unit>.gitconfig` | Delta diff pager |
 | `vscode/themes/` | `<unit>-color-theme.json` | VS Code theme |
 | `windows-terminal/` | `<unit>.json` | Windows Terminal scheme |
 | `claude/themes/` | `<unit>.json` | Claude Code UI theme |

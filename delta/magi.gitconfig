@@ -1,0 +1,32 @@
+[delta "magi"]
+    syntax-theme = magi
+    dark = true
+    line-numbers = true
+
+    file-style = bold "#ec7420"
+    file-decoration-style = "#ec7420" underline
+
+    hunk-header-style = file line-number syntax
+    hunk-header-file-style = bold "#3cffd0"
+    hunk-header-line-number-style = bold "#3cffd0"
+    hunk-header-decoration-style = "#484848" box
+
+    line-numbers-left-style = "#484848"
+    line-numbers-right-style = "#484848"
+    line-numbers-minus-style = bold "#a80808"
+    line-numbers-plus-style = bold "#409820"
+    line-numbers-zero-style = "#484848"
+
+    zero-style = syntax
+
+    plus-style = syntax "#0a1a0a"
+    plus-emph-style = syntax "#163d16"
+    minus-style = syntax "#1a0505"
+    minus-emph-style = syntax "#381010"
+
+    commit-style = bold "#ec7420"
+    commit-decoration-style = bold "#ec7420" box
+
+    blame-code-style = syntax
+    blame-separator-style = "#484848"
+    blame-palette = "#000000" "#0d0d0d" "#1a1a1a"

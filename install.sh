@@ -127,7 +127,18 @@ if command -v bat &> /dev/null || command -v batcat &> /dev/null; then
     # Note: bat needs 'bat cache --build' to see new themes
 fi
 
-# --- 6. Claude Code Synchronization ---
+# --- 6. Delta Synchronization ---
+if command -v delta &> /dev/null && [ -d "delta" ]; then
+    DELTA_DIR="$HOME/.config/delta"
+    mkdir -p "$DELTA_DIR"
+    cp delta/*.gitconfig "$DELTA_DIR/"
+    echo -e "🔺 ${GREEN}Syncing Delta themes...${NC}"
+    echo -e "   - Themes deployed to $DELTA_DIR"
+    echo -e "   - Add to ~/.gitconfig: [include] path = ~/.config/delta/magi.gitconfig"
+    echo -e "   - Then set: [delta] features = magi"
+fi
+
+# --- 7. Claude Code Synchronization ---
 if command -v claude &> /dev/null && [ -d "claude" ]; then
     CLAUDE_THEME_DIR="$HOME/.claude/themes"
     mkdir -p "$CLAUDE_THEME_DIR"
@@ -144,6 +155,7 @@ echo -e "📂 ${ORANGE}Env:${NC}   Source ${CYAN}$INSTALL_DIR/env/[unit].env.sh$
 echo -e "🖌️  ${ORANGE}Vim:${NC}   Add ${CYAN}colorscheme [unit]${NC} to ~/.vimrc"
 echo -e "📟 ${ORANGE}Tmux:${NC}  Source ${CYAN}~/.tmux/[unit].tmux.conf${NC}"
 echo -e "📈 ${ORANGE}Btop:${NC}  Set ${CYAN}color_theme = \"[unit]\"${NC} in btop.conf"
+echo -e "🔺 ${ORANGE}Delta:${NC} Include ${CYAN}~/.config/delta/[unit].gitconfig${NC} and set ${CYAN}features = [unit]${NC}"
 echo -e "🤖 ${ORANGE}Claude:${NC} Set ${CYAN}theme = \"magi\"${NC} (or eva01/eva02) in /config"
 echo -e "--------------------------------------------------"
 echo -e "\n(๑˃ᴗ˂)ﻭ ${GREEN}The Human Instrumentality Project is complete, Senpai!${NC}"

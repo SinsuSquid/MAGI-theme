@@ -1,0 +1,32 @@
+[delta "eva01"]
+    syntax-theme = eva01
+    dark = true
+    line-numbers = true
+
+    file-style = bold "#8bd450"
+    file-decoration-style = "#8bd450" underline
+
+    hunk-header-style = file line-number syntax
+    hunk-header-file-style = bold "#965fd4"
+    hunk-header-line-number-style = bold "#965fd4"
+    hunk-header-decoration-style = "#3f6d4e" box
+
+    line-numbers-left-style = "#734f9a"
+    line-numbers-right-style = "#734f9a"
+    line-numbers-minus-style = bold "#f02020"
+    line-numbers-plus-style = bold "#8bd450"
+    line-numbers-zero-style = "#734f9a"
+
+    zero-style = syntax
+
+    plus-style = syntax "#1a2a1a"
+    plus-emph-style = syntax "#263d26"
+    minus-style = syntax "#2a1a1d"
+    minus-emph-style = syntax "#3d1a22"
+
+    commit-style = bold "#8bd450"
+    commit-decoration-style = bold "#8bd450" box
+
+    blame-code-style = syntax
+    blame-separator-style = "#734f9a"
+    blame-palette = "#1d1a2f" "#22203a" "#272445"

@@ -81,6 +81,7 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/mai
 *   **Vim**: Synchronizes all colorschemes and Airline themes to `~/.vim/`.
 *   **Tmux**: Sets up all three configurations in `~/.tmux/` and initializes the default.
 *   **Btop**: Deploys all theme variants to your btop config directory.
+*   **Delta**: Deploys all three gitconfig feature files to `~/.config/delta/`.
 *   **Claude Code**: Deploys all three themes to `~/.claude/themes/` for selection via `/config`.
 
 ---
@@ -96,6 +97,22 @@ Available on the [VS Code Marketplace](https://marketplace.visualstudio.com/item
 
 1.  Open VS Code and search for **"MAGI & EVA Theme Suite"**.
 2.  Select **MAGI**, **EVA-01**, or **EVA-02** from the **Color Theme** picker (`Ctrl+K Ctrl+T`).
+
+---
+
+## 🔺 Delta Installation
+
+Themes deploy automatically via `install.sh`. After running it, add the following to your `~/.gitconfig`:
+
+```ini
+[include]
+    path = ~/.config/delta/magi.gitconfig   # or eva01 / eva02
+
+[delta]
+    features = magi   # or eva01 / eva02
+```
+
+The delta themes reference the MAGI bat `syntax-theme` for syntax highlighting inside diff hunks. Run `bat cache --build` once after install if syntax colors don't appear.
 
 ---
 
@@ -131,7 +148,7 @@ Or set it permanently in `~/.claude/settings.json`:
 
 *   **Unified Aesthetic:** Consistent colors across your terminal and editor.
 *   **Smart Shell Prompts:** High-spec multi-line prompts for **Bash (Oh-My-Bash)** and **Zsh (Oh-My-Zsh)**.
-*   **Total Environment Sync:** Themed **FZF**, **LS_COLORS**, and **Bat** highlighting for all three units.
+*   **Total Environment Sync:** Themed **FZF**, **LS_COLORS**, **Bat**, and **Delta** for all three units.
 *   **Semantic Highlighting**: Optimized for deep code understanding in VS Code.
 *   **Claude Code Integration**: Full UI theming for the Claude Code CLI via `~/.claude/themes/`.
 *   **Master Installer**: Automated dependency installation and theme deployment for Linux/macOS.
