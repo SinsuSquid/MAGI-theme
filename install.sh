@@ -143,6 +143,18 @@ if command -v delta &> /dev/null && [ -d "delta" ]; then
     echo -e "   - Delta diff themes synchronized to $DELTA_DIR"
 fi
 
+# --- 7. Antigravity CLI Synchronization ---
+echo -e "🛸 ${GREEN}Syncing Antigravity CLI themes...${NC}"
+mkdir -p "$INSTALL_DIR/antigravity-cli"
+cp antigravity-cli/*.json "$INSTALL_DIR/antigravity-cli/"
+cp apply_theme.py "$INSTALL_DIR/"
+echo -e "   - Antigravity CLI themes synchronized to $INSTALL_DIR/antigravity-cli/"
+
+if [ -f "$INSTALL_DIR/apply_theme.py" ]; then
+    echo -e "🔄 ${CYAN}Automatically applying MAGI theme to Antigravity CLI...${NC}"
+    "$INSTALL_DIR/apply_theme.py" magi
+fi
+
 # --- Final Synchronization Report ---
 echo -e "\n✨ ${CYAN}TOTAL SYNCHRONIZATION ACHIEVED!${NC} ✨"
 echo -e "--------------------------------------------------"
@@ -152,5 +164,6 @@ echo -e "🖌️  ${ORANGE}Vim:${NC}   Add ${CYAN}colorscheme [unit]${NC} to ~/.
 echo -e "📟 ${ORANGE}Tmux:${NC}  Source ${CYAN}~/.tmux/[unit].tmux.conf${NC}"
 echo -e "📈 ${ORANGE}Btop:${NC}  Set ${CYAN}color_theme = \"[unit]\"${NC} in btop.conf"
 echo -e "🔺 ${ORANGE}Delta:${NC} Include ${CYAN}~/.config/delta/[unit].gitconfig${NC} and set ${CYAN}features = [unit]${NC}"
+echo -e "🛸 ${ORANGE}Antigravity:${NC} Load themes from ${CYAN}$INSTALL_DIR/antigravity-cli/[unit].json${NC}"
 echo -e "--------------------------------------------------"
 echo -e "\n(๑˃ᴗ˂)ﻭ ${GREEN}The Human Instrumentality Project is complete, Senpai!${NC}"

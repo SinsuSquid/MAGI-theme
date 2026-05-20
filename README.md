@@ -152,6 +152,26 @@ Synchronize your diffs with the MAGI System. Themes deploy automatically via `in
 ## 🖼️ Visual Assets
 For official hex-palettes, wallpaper ideas, and design guides, check out [ASSETS.md](./ASSETS.md)! ✨
 
+## 🛸 Antigravity CLI Installation
+
+Synchronize your AI agent interface with the MAGI System.
+
+1.  **Automatic Application**: Run the provided sync script:
+    ```bash
+    ./apply_theme.py magi  # or eva01 / eva02
+    ```
+2.  **Manual Sync**: Themes are defined in `antigravity-cli/[unit].json`. Copy the contents and apply via the `/config` command within Antigravity CLI.
+
+---
+
+## 🚀 Features
+
+*   **Unified Aesthetic:** Consistent colors across your terminal and editor.
+*   **Smart Shell Prompts:** High-spec multi-line prompts for **Bash (Oh-My-Bash)** and **Zsh (Oh-My-Zsh)**.
+*   **Total Environment Sync:** Themed **FZF**, **LS_COLORS**, **Bat**, and **Delta** for all three units.
+*   **Semantic Highlighting**: Optimized for deep code understanding in VS Code.
+*   **Master Installer**: Automated dependency installation and theme deployment for Linux/macOS.
+
 ## 🤖 System Status: ACTIVE
 
 > "The MAGI System is now in complete agreement."

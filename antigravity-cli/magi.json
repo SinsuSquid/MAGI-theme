@@ -1,0 +1,31 @@
+{
+  "name": "magi",
+  "type": "custom",
+  "text": {
+    "primary": "#ec7420",
+    "secondary": "#484848",
+    "link": "#3cffd0",
+    "accent": "#3cffd0",
+    "response": "#e8e8e8"
+  },
+  "background": {
+    "primary": "#000000",
+    "diff": {
+      "added": "#1a3312",
+      "removed": "#331212"
+    }
+  },
+  "border": {
+    "default": "#484848",
+    "focused": "#ec7420"
+  },
+  "status": {
+    "success": "#50ff10",
+    "warning": "#f4b000",
+    "error": "#f02020"
+  },
+  "ui": {
+    "comment": "#484848",
+    "symbol": "#3cffd0"
+  }
+}
