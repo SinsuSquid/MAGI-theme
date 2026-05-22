@@ -1,0 +1,26 @@
+{
+  "base": "dark",
+
+  "syntax-fg":      "#e8e8e8",
+  "syntax-comment": "#484848",
+  "syntax-cyan":    "#3cffd0",
+  "syntax-green":   "#50ff10",
+  "syntax-orange":  "#ec7420",
+  "syntax-pink":    "#f02020",
+  "syntax-purple":  "#b040a0",
+  "syntax-red":     "#f02020",
+  "syntax-yellow":  "#f0f0a0",
+  "syntax-gray":    "#484848",
+
+  "modal-bg":         "#111111",
+  "modal-text":       "#e8e8e8",
+  "modal-text-faded": "#484848",
+
+  "log-error": "#f02020",
+  "log-warn":  "#f4b000",
+  "log-note":  "#3cffd0",
+  "log-colon": "#ec7420",
+
+  "red":       "#f02020",
+  "red-faded": "#a80808"
+}

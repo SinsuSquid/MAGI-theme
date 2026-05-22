@@ -98,6 +98,7 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/mai
 *   **Tmux**: Sets up all three configurations in `~/.tmux/` and initializes the default.
 *   **Btop**: Deploys all theme variants to your btop config directory.
 *   **Delta**: Deploys all three gitconfig feature files to `~/.config/delta/`.
+*   **Claude**: Deploys all three JSON theme files to `~/.claude/themes/`.
 
 ---
 
@@ -128,6 +129,19 @@ Synchronize your diffs with the MAGI System. Themes deploy automatically via `in
 ```
 
 > Delta taps into the MAGI bat syntax engine for full in-hunk highlighting. If colors don't initialize on first boot, run `bat cache --build` to complete the synchronization.
+
+---
+
+## 🤖 Claude Code Installation
+
+The Claude Code CLI themes are fully synced to your terminal! Themes deploy automatically via `install.sh` to your global `~/.claude/themes/` directory.
+
+To activate the theme inside a Claude Code session:
+1. Run the interactive theme picker command:
+   ```bash
+   /theme
+   ```
+2. Select **magi**, **eva01**, or **eva02** from the custom themes list!
 
 ---
 

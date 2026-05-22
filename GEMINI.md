@@ -24,6 +24,7 @@ Every theme variant has a counterpart file in each tool directory. When adding o
 | `delta/` | `<unit>.gitconfig` | Delta diff pager |
 | `vscode/themes/` | `<unit>-color-theme.json` | VS Code theme |
 | `windows-terminal/` | `<unit>.json` | Windows Terminal scheme |
+| `claude/` | `<unit>.json` | Claude Code CLI theme |
 
 ## Canonical Color Palettes
 
