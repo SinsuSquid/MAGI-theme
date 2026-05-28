@@ -39,26 +39,6 @@ if [ ! -d "bash" ] || [ ! -d "colors" ]; then
     cd "$SOURCE_ROOT"
 fi
 
-# --- 0. Dependency Check & Installation ---
-echo -e "🛠️  ${GREEN}Verifying system dependencies...${NC}"
-
-install_pkg() {
-    if ! command -v $1 &> /dev/null; then
-        echo -e "   - ${CYAN}$1${NC} not found. Installing..."
-        if command -v apt-get &> /dev/null; then
-            sudo apt-get update -y > /dev/null 2>&1
-            sudo apt-get install -y $1 > /dev/null 2>&1
-        elif command -v brew &> /dev/null; then
-            brew install $1 > /dev/null 2>&1
-        else
-            echo -e "   - ${RED}Error:${NC} No supported package manager found (apt/brew)."
-        fi
-    else
-        echo -e "   - ${CYAN}$1${NC} is synchronized."
-    fi
-}
-
-for pkg in vim tmux btop git curl; do install_pkg "$pkg"; done
 
 # --- 1. Shell Synchronization ---
 echo -e "🐚 ${GREEN}Syncing Shell themes...${NC}"
