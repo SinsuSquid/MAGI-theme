@@ -152,6 +152,15 @@ if [ -d "claude" ]; then
     echo -e "   - Claude Code themes synchronized to $CLAUDE_DIR"
 fi
 
+# --- 8. Alacritty Synchronization ---
+if [ -d "alacritty" ]; then
+    ALACRITTY_DIR="$HOME/.config/alacritty/themes"
+    mkdir -p "$ALACRITTY_DIR"
+    cp alacritty/*.toml "$ALACRITTY_DIR/"
+    echo -e "🖥️  ${GREEN}Syncing Alacritty themes...${NC}"
+    echo -e "   - Alacritty themes synchronized to $ALACRITTY_DIR"
+fi
+
 # --- Final Synchronization Report ---
 echo -e "\n✨ ${CYAN}TOTAL SYNCHRONIZATION ACHIEVED!${NC} ✨"
 echo -e "--------------------------------------------------"
@@ -162,5 +171,6 @@ echo -e "📟 ${ORANGE}Tmux:${NC}  Source ${CYAN}~/.tmux/[unit].tmux.conf${NC}"
 echo -e "📈 ${ORANGE}Btop:${NC}  Set ${CYAN}color_theme = \"[unit]\"${NC} in btop.conf"
 echo -e "🔺 ${ORANGE}Delta:${NC} Include ${CYAN}~/.config/delta/[unit].gitconfig${NC} and set ${CYAN}features = [unit]${NC}"
 echo -e "🤖 ${ORANGE}Claude:${NC} Run ${CYAN}/theme [unit]${NC} inside Claude Code"
+echo -e "🖥️  ${ORANGE}Alacritty:${NC} Import ${CYAN}~/.config/alacritty/themes/[unit].toml${NC} in your alacritty.toml"
 echo -e "--------------------------------------------------"
 echo -e "\n(๑˃ᴗ˂)ﻭ ${GREEN}The Human Instrumentality Project is complete, Senpai!${NC}"

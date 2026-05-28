@@ -1,0 +1,34 @@
+# MAGI - Alacritty Theme 🧡
+# "Initializing Human Instrumentality..."
+
+[colors.primary]
+background = "#000000"
+foreground = "#e8e8e8"
+
+[colors.cursor]
+text = "#000000"
+cursor = "#ec7420"
+
+[colors.selection]
+text = "CellBackground"
+background = "#3cffd0"
+
+[colors.normal]
+black = "#000000"
+red = "#a80808"
+green = "#409820"
+yellow = "#f4b000"
+blue = "#5090c8"
+magenta = "#a06090"
+cyan = "#60f0a0"
+white = "#b0b0b0"
+
+[colors.bright]
+black = "#484848"
+red = "#f02020"
+green = "#50ff10"
+yellow = "#f0f0a0"
+blue = "#40c8e8"
+magenta = "#b040a0"
+cyan = "#3cffd0"
+white = "#e8e8e8"

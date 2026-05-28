@@ -1,0 +1,34 @@
+# EVA-01 - Alacritty Theme 💜💚
+# "Fierce performance. Midnight Purple backgrounds with Neon Green and Vibrant Purple accents."
+
+[colors.primary]
+background = "#1d1a2f"
+foreground = "#e8e8e8"
+
+[colors.cursor]
+text = "#1d1a2f"
+cursor = "#8bd450"
+
+[colors.selection]
+text = "CellBackground"
+background = "#965fd4"
+
+[colors.normal]
+black = "#1d1a2f"
+red = "#f02020"
+green = "#8bd450"
+yellow = "#f4b000"
+blue = "#40c8e8"
+magenta = "#965fd4"
+cyan = "#3cffd0"
+white = "#b0b0b0"
+
+[colors.bright]
+black = "#734f9a"
+red = "#f02020"
+green = "#8bd450"
+yellow = "#f0f0a0"
+blue = "#40c8e8"
+magenta = "#965fd4"
+cyan = "#3cffd0"
+white = "#e8e8e8"

@@ -1,0 +1,34 @@
+# EVA-02 - Alacritty Theme 🔴🧡
+# "Pure aggressive power. Deep Crimson highlights on a dark thermal base."
+
+[colors.primary]
+background = "#281d2d"
+foreground = "#fbe6e5"
+
+[colors.cursor]
+text = "#281d2d"
+cursor = "#ed2323"
+
+[colors.selection]
+text = "CellBackground"
+background = "#ea8533"
+
+[colors.normal]
+black = "#281d2d"
+red = "#ed2323"
+green = "#8bd450"
+yellow = "#ea8533"
+blue = "#40c8e8"
+magenta = "#965fd4"
+cyan = "#3cffd0"
+white = "#fbe6e5"
+
+[colors.bright]
+black = "#f99d52"
+red = "#ed2323"
+green = "#8bd450"
+yellow = "#f0f0a0"
+blue = "#40c8e8"
+magenta = "#965fd4"
+cyan = "#3cffd0"
+white = "#fbe6e5"

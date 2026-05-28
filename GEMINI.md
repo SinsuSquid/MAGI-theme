@@ -25,6 +25,7 @@ Every theme variant has a counterpart file in each tool directory. When adding o
 | `vscode/themes/` | `<unit>-color-theme.json` | VS Code theme |
 | `windows-terminal/` | `<unit>.json` | Windows Terminal scheme |
 | `claude/` | `<unit>.json` | Claude Code CLI theme |
+| `alacritty/` | `<unit>.toml` | Alacritty terminal |
 
 ## Canonical Color Palettes
 

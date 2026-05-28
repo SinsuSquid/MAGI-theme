@@ -1,6 +1,6 @@
 # MAGI Theme Suite 🧠💜💚🔴
 
-A high-performance theme suite for **Vim**, **Bash**, **VS Code**, and **Windows Terminal**, inspired by *Neon Genesis Evangelion*. Designed for legendary programmers who need their environment to feel like a high-spec command center.
+A high-performance theme suite for **Vim**, **Bash**, **VS Code**, **Windows Terminal**, and **Alacritty**, inspired by *Neon Genesis Evangelion*. Designed for legendary programmers who need their environment to feel like a high-spec command center.
 
 ![Terminal Showcase](screenshot1.png)
 ![Btop Showcase](screenshot2.png)
@@ -99,6 +99,7 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/mai
 *   **Btop**: Deploys all theme variants to your btop config directory.
 *   **Delta**: Deploys all three gitconfig feature files to `~/.config/delta/`.
 *   **Claude**: Deploys all three JSON theme files to `~/.claude/themes/`.
+*   **Alacritty**: Deploys all three TOML theme files to `~/.config/alacritty/themes/`.
 
 ---
 
@@ -142,6 +143,21 @@ To activate the theme inside a Claude Code session:
    /theme
    ```
 2. Select **magi**, **eva01**, or **eva02** from the custom themes list!
+
+---
+
+## 🖥️ Alacritty Installation
+
+Themes deploy automatically via `install.sh` to `~/.config/alacritty/themes/`.
+
+To activate the theme in Alacritty (v0.13.0 or higher):
+1. Open your `~/.config/alacritty/alacritty.toml` config file.
+2. Import your desired unit's theme at the top of the file:
+   ```toml
+   import = [
+       "~/.config/alacritty/themes/magi.toml" # or: eva01.toml / eva02.toml
+   ]
+   ```
 
 ---
 
