@@ -123,16 +123,8 @@ if command -v delta &> /dev/null && [ -d "delta" ]; then
     echo -e "   - Delta diff themes synchronized to $DELTA_DIR"
 fi
 
-# --- 7. Claude Code Synchronization ---
-if [ -d "claude" ]; then
-    CLAUDE_DIR="$HOME/.claude/themes"
-    mkdir -p "$CLAUDE_DIR"
-    cp claude/*.json "$CLAUDE_DIR/"
-    echo -e "🤖 ${GREEN}Syncing Claude Code themes...${NC}"
-    echo -e "   - Claude Code themes synchronized to $CLAUDE_DIR"
-fi
+# --- 7. Alacritty Synchronization ---
 
-# --- 8. Alacritty Synchronization ---
 if [ -d "alacritty" ]; then
     ALACRITTY_DIR="$HOME/.config/alacritty/themes"
     mkdir -p "$ALACRITTY_DIR"
@@ -150,7 +142,6 @@ echo -e "🖌️  ${ORANGE}Vim:${NC}   Add ${CYAN}colorscheme [unit]${NC} to ~/.
 echo -e "📟 ${ORANGE}Tmux:${NC}  Source ${CYAN}~/.tmux/[unit].tmux.conf${NC}"
 echo -e "📈 ${ORANGE}Btop:${NC}  Set ${CYAN}color_theme = \"[unit]\"${NC} in btop.conf"
 echo -e "🔺 ${ORANGE}Delta:${NC} Include ${CYAN}~/.config/delta/[unit].gitconfig${NC} and set ${CYAN}features = [unit]${NC}"
-echo -e "🤖 ${ORANGE}Claude:${NC} Run ${CYAN}/theme [unit]${NC} inside Claude Code"
 echo -e "🖥️  ${ORANGE}Alacritty:${NC} Import ${CYAN}~/.config/alacritty/themes/[unit].toml${NC} in your alacritty.toml"
 echo -e "--------------------------------------------------"
 echo -e "\n(๑˃ᴗ˂)ﻭ ${GREEN}The Human Instrumentality Project is complete, Senpai!${NC}"
