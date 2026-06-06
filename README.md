@@ -81,7 +81,7 @@ eval "$(starship init bash)"   # or: eval "$(starship init zsh)"
 
 ## 🐚 Human Instrumentality Sync (Master Installation)
 
-For the ultimate synchronization, use our one-click master script. This will deploy themes for **Starship**, **Vim**, **Tmux**, **Btop**, and **Delta** in one single stroke!
+For the ultimate synchronization, use our one-click master script. This will deploy themes for **Starship**, **Vim**, **Tmux**, **Btop**, **Delta**, and **Alacritty** in one single stroke!
 
 ### Quick Sync (One-Liner)
 ```bash
@@ -98,7 +98,6 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/SinsuSquid/MAGI-theme/mai
 *   **Tmux**: Sets up all three configurations in `~/.tmux/` and initializes the default.
 *   **Btop**: Deploys all theme variants to your btop config directory.
 *   **Delta**: Deploys all three gitconfig feature files to `~/.config/delta/`.
-*   **Claude**: Deploys all three JSON theme files to `~/.claude/themes/`.
 *   **Alacritty**: Deploys all three TOML theme files to `~/.config/alacritty/themes/`.
 
 ---
@@ -130,19 +129,6 @@ Synchronize your diffs with the MAGI System. Themes deploy automatically via `in
 ```
 
 > Delta taps into the MAGI bat syntax engine for full in-hunk highlighting. If colors don't initialize on first boot, run `bat cache --build` to complete the synchronization.
-
----
-
-## 🤖 Claude Code Installation
-
-The Claude Code CLI themes are fully synced to your terminal! Themes deploy automatically via `install.sh` to your global `~/.claude/themes/` directory.
-
-To activate the theme inside a Claude Code session:
-1. Run the interactive theme picker command:
-   ```bash
-   /theme
-   ```
-2. Select **magi**, **eva01**, or **eva02** from the custom themes list!
 
 ---
 
